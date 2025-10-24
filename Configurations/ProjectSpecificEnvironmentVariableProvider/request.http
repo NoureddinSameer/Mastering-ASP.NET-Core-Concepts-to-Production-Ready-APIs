@@ -1,0 +1,4 @@
+@baseURL = https://localhost:5161
+
+### GET Environment variable
+GET {{baseURL}}/enable_dev_console

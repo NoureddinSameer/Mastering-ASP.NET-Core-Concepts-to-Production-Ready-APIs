@@ -1,0 +1,21 @@
+@baseURL = https://localhost:5161
+
+### GET get-value-by-key IConfiguration[key]
+GET {{baseURL}}/get-value-by-key
+
+
+### GET get-value-by-path IConfiguration[path]
+GET {{baseURL}}/get-value-by-path
+ 
+### GET get-value-by-path IConfiguration.GetConnectionString(<<name>>)
+GET {{baseURL}}/get-connection-string
+
+### GET get-value-by-key IConfiguration.GetValue(key)
+GET {{baseURL}}/get-value
+
+
+### GET get bind section value and returns the object
+GET {{baseURL}}/get
+
+### GET  bind section value and avoid creating object
+GET {{baseURL}}/bind

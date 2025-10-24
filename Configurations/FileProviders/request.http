@@ -1,0 +1,10 @@
+@baseURL = https://localhost:5161
+
+### GET Environment variable
+GET {{baseURL}}/AppName
+
+### GET Environment variable
+GET {{baseURL}}/ServiceName
+
+### GET INI
+GET {{baseURL}}/ini/General:AppHostProvider

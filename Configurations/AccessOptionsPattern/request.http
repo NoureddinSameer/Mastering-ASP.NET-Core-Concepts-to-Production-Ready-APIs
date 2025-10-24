@@ -1,0 +1,13 @@
+@baseURL = https://localhost:5161
+
+### GET singleton snapshot take at startup
+GET {{baseURL}}/ioptions
+
+
+### GET // fresh per scope (per request)
+GET {{baseURL}}/ioptions-snapshot 
+
+
+### GET // Fresh on Change
+GET {{baseURL}}/ioptions-monitor
+
