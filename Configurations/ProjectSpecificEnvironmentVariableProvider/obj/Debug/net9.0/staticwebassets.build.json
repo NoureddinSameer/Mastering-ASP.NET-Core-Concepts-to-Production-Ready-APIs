@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "dBjBdTMUcAK5WwOi0AvvWru3NeXz+hIcjq3JKld0coM=",
+  "Source": "ProjectSpecificEnvironmentVariableProvider",
+  "BasePath": "_content/ProjectSpecificEnvironmentVariableProvider",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
