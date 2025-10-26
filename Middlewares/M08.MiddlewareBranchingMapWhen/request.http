@@ -1,0 +1,7 @@
+@baseUrl = https://localhost:7029
+
+###
+GET {{baseUrl}}/checkout
+
+###
+GET {{baseUrl}}/checkout?mode=new
