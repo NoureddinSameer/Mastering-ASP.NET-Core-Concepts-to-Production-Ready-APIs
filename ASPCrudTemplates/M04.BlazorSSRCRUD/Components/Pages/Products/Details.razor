@@ -1,0 +1,28 @@
+@page "/products/details/{ProductId:guid}"
+<h1>Product details</h1>
+<div>
+    <p><strong>Name:</strong> @product?.Name</p>
+    <p><strong>Price:</strong> @product?.Price</p>
+</div>
+
+<NavLink href="/Products" class="btn btn-secondary">Back to List</NavLink>
+<NavLink href="@($"/Products/Edit/{product.Id}")" class="btn btn-primary">Edit</NavLink>
+<NavLink href="@($"/Products/Delete/{product.Id}")" class="btn btn-danger">Delete</NavLink>
+
+
+@code {
+
+    [Inject]
+    private ProductStore store { get; set; } = default!;
+
+    [Parameter]
+    public Guid ProductId {get; set;}
+
+    private Product? product;
+
+
+    protected override void OnParametersSet()
+    {
+        product = store.GetById(ProductId) ?? throw new ArgumentNullException();
+    }
+}

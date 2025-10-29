@@ -1,0 +1,40 @@
+@page "/products"
+
+<h3>List of Products</h3>
+
+<NavLink href="/products/create" class="btn btn-info">Create Product</NavLink>
+
+
+<table class="table">
+    <thead>
+        <tr><th>Name</th><th>Price</th><th></th></tr>
+    </thead>
+    <tbody>
+
+@foreach (var product in products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <NavLink href="@($"/Products/Details/{product.Id}")" class="btn btn-info">Details</NavLink>
+                    <NavLink href="@($"/Products/Edit/{product.Id}")" class="btn btn-primary">Edit</NavLink>
+                    <NavLink href="@($"/Products/Delete/{product.Id}")" class="btn btn-danger">Delete</NavLink>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@code { 
+    [Inject]
+    private ProductStore store { get; set; } = default!;
+
+    private List<Product> products = [];
+
+    protected override void OnInitialized()
+    {
+        products = store.GetAll().ToList();
+    }
+}

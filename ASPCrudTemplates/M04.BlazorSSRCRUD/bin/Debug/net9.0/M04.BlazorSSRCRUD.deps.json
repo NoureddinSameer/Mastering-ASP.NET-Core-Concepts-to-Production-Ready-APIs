@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "M04.BlazorSSRCRUD/1.0.0": {
+        "runtime": {
+          "M04.BlazorSSRCRUD.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "M04.BlazorSSRCRUD/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

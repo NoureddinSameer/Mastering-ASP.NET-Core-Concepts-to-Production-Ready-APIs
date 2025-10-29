@@ -1,0 +1,24 @@
+@page "{id:guid}"
+@model DetailsModel
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Product?.Name</dd>
+
+            <dt class="col-sm-3">Price</dt>
+            <dd class="col-sm-9">@Model.Product?.Price</dd>
+        </dl>
+
+        <a asp-page="/Products/Index" class="btn btn-secondary">Back to List</a>
+        <a asp-page="/Products/Delete" asp-route-id="@Model.Product?.Id" class="btn btn-danger">Delete</a>
+        <a asp-page="/Products/Edit" asp-route-id="@Model.Product?.Id" class="btn btn-primary">Edit</a>
+    </div>
+</div>
+
