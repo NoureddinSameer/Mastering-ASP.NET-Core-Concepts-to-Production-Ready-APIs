@@ -1,0 +1,39 @@
+@page "/products/delete/{ProductId:guid}"
+
+@rendermode InteractiveServer
+
+<h1>Delete Product </h1>
+
+<div class="alert alert-danger">Are you sure you want to delete this product?</div>
+
+<div>
+    <p><strong>Name:</strong> @product?.Name</p>
+    <p><strong>Price:</strong> @product?.Price</p>
+</div>
+
+<button @onclick="DeleteProduct" class="btn btn-danger">Delete</button>
+<NavLink href="/Products" class="btn btn-secondary">Cancel</NavLink>
+@code {
+    [Inject]
+    private NavigationManager navigation { get; set; } = default!;
+
+    [Inject]
+    private ProductStore store { get; set; } = default!;
+
+    [Parameter]
+    public Guid ProductId {get; set;}
+
+    private Product product = new();
+
+    protected override void OnParametersSet()
+    {
+        product = store.GetById(ProductId) ?? throw new ArgumentNullException();
+    }
+    private void DeleteProduct()
+    {
+        var deleted = store.Delete(product);
+
+        if(deleted)
+            navigation.NavigateTo("/products");
+    }
+}

@@ -1,0 +1,15 @@
+@page "{id:guid}"
+@model DeleteModel
+
+<div class="alert alert-danger">Are you sure you want to delete this product?</div>
+
+<div>
+    <p><strong>Name:</strong> @Model.Product?.Name</p>
+    <p><strong>Price:</strong> @Model.Product?.Price</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Product.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="/Products/Index" class="btn btn-secondary">Cancel</a>
+</form>
