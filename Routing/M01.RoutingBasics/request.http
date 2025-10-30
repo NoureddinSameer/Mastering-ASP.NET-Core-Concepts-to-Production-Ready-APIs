@@ -1,0 +1,11 @@
+@baseUrl = https://localhost:7007
+
+
+###
+GET {{baseUrl}}/products
+
+###
+GET {{baseUrl}}/products/all
+
+###
+GET {{baseUrl}}/route-table
