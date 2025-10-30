@@ -1,0 +1,65 @@
+@baseUrl = https://localhost:7007
+
+###
+{{baseUrl}}/int/123
+
+###
+{{baseUrl}}/bool/true
+
+###
+{{baseUrl}}/datetime/2024-3-08
+
+###
+{{baseUrl}}/datetime/2016-12-31%2019:32
+
+###
+GET {{baseUrl}}/decimal/49.99
+
+###
+GET {{baseUrl}}/double/1.234
+
+###
+GET {{baseUrl}}/float/1.234
+
+###
+GET {{baseUrl}}/guid/CD2C1638-1638-72D5-1638-DEADBEEF1638
+
+###
+GET {{baseUrl}}/long/123456789
+
+###
+GET {{baseUrl}}/minlength/Rick
+
+###
+GET {{baseUrl}}/maxlength/MyFile
+
+###
+GET {{baseUrl}}/length/somefile.txt
+
+###
+GET {{baseUrl}}/lengthrange/somefile.txt
+
+###
+GET {{baseUrl}}/min/19
+
+###
+GET {{baseUrl}}/max/91
+
+###
+GET {{baseUrl}}/range/50
+
+###
+GET {{baseUrl}}/alpha/Rick
+
+###
+GET {{baseUrl}}/regex/123-45-6789
+
+###
+GET {{baseUrl}}/required/Rick
+
+###
+GET {{baseUrl}}/sales/month/10
+
+###
+GET {{baseUrl}}/sales/month/13
+
