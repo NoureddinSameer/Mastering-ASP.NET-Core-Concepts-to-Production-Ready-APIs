@@ -1,0 +1,41 @@
+@baseUrl = https://localhost:7105
+
+
+###
+POST {{baseUrl}}/product-minimal
+Content-Type: application/json
+
+{
+    "name": "Soda",
+    "price": 2.99
+}
+
+
+
+###
+POST {{baseUrl}}/product-controller
+Content-Type: application/json
+
+{
+    "name": "Soda",
+    "price": 2.98
+}
+
+###
+POST {{baseUrl}}/product-controller
+Content-Type: application/xml
+
+<ProductRequest>
+    <Name>Soda</Name>
+    <Price>2.99</Price>
+</ProductRequest>
+
+###
+POST {{baseUrl}}/product-controller
+Content-Type: application/xml
+Accept: application/xml
+
+<ProductRequest>
+    <Name>Soda</Name>
+    <Price>2.99</Price>
+</ProductRequest>

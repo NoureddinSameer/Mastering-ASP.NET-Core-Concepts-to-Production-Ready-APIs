@@ -1,0 +1,28 @@
+@baseUrl = https://localhost:7105
+
+
+### Minimal API
+GET {{baseUrl}}/product-minimal/42
+
+### Minimal API 1 change id --> identifier ... use FromRoute
+GET {{baseUrl}}/product-minimal-1/42
+
+
+
+### Minimal API 2 ... by default take from Route
+GET {{baseUrl}}/product-minimal-2/45?id=21
+
+
+### Minimal API 3 (FromQuery)
+GET {{baseUrl}}/product-minimal-3/45?id=21
+
+
+
+###
+GET {{baseUrl}}/product-controller/52
+
+### by default take from Route
+GET {{baseUrl}}/product-controller/50?id=30
+
+### (FromQuery)
+GET {{baseUrl}}/product-controller-1/50?id=30

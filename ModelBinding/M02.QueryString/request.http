@@ -1,0 +1,44 @@
+@baseUrl = https://localhost:7105
+
+
+### Minimal API
+GET {{baseUrl}}/product-minimal?page=1&pageSize=10
+
+
+### Minimal API 1 
+GET {{baseUrl}}/product-minimal-1?page=1&pageSize=10
+
+
+
+
+### Controller API
+GET {{baseUrl}}/product-controller?page=1&pageSize=10
+
+###
+GET {{baseUrl}}/product-minimal-asparameters?query=soda&page=1&pageSize=10
+
+###
+GET {{baseUrl}}/product-controller-complex-query?query=soda&page=1&pageSize=10
+
+###
+GET {{baseUrl}}/product-minimal-array/?ids=27a65726-a07f-484c-9b0c-334611ec1c18&ids=69a0b1fe-3c20-4a4a-bc57-13a8078d8e00
+
+###
+GET {{baseUrl}}/product-controller-array/?ids=27a65726-a07f-484c-9b0c-334611ec1c18&ids=69a0b1fe-3c20-4a4a-bc57-13a8078d8e00
+
+###
+GET {{baseUrl}}/date-range-minimal/?dateRange=2025-01-01,2025-12-31
+
+
+### exception
+GET {{baseUrl}}/date-range-minimal/?dateRange=abc,xyz
+
+### in terminal you will see exception "could not parse supplied values"
+GET {{baseUrl}}/date-range-minimal-1/?dateRange=abc,xyz
+
+
+###
+GET {{baseUrl}}/date-range-controller/?dateRange=2025-01-01,2025-12-31
+
+### exception 
+GET {{baseUrl}}/date-range-controller/?dateRange=abc,xyz
