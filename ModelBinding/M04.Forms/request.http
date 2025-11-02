@@ -1,0 +1,36 @@
+@baseUrl = https://localhost:7105
+
+### Minimal API
+GET {{baseUrl}}/product-minimal
+Content-Type: application/x-www-form-urlencoded
+
+name=soda&price=2.99
+
+### Controller API
+GET {{baseUrl}}/product-controller
+Content-Type: application/x-www-form-urlencoded
+
+name=soda&price=2.99
+
+
+###
+POST {{baseUrl}}/upload-minimal
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="invoice.png"
+Content-Type: image/png
+
+< D:/invoice.png
+--MyBoundary--
+
+###
+POST {{baseUrl}}/upload-controller
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="invoice.png"
+Content-Type: image/png
+
+< D:/invoice.png
+--MyBoundary--
