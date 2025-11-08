@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Nour\\OneDrive\\Desktop\\ModelBinding\\M06.Cookie\\M06.Cookie.csproj",
+      "projectUniqueName": "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ModelBinding\\M06.Cookie\\M06.Cookie.csproj",
       "projectName": "M06.Cookie",
-      "projectPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\ModelBinding\\M06.Cookie\\M06.Cookie.csproj",
+      "projectPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ModelBinding\\M06.Cookie\\M06.Cookie.csproj",
       "packagesPath": "C:\\Users\\Nour\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\ModelBinding\\M06.Cookie\\obj\\",
+      "outputPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ModelBinding\\M06.Cookie\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
