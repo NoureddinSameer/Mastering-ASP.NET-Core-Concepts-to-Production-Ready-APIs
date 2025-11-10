@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("M02.BuildingRESTFulAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee7e90a5011e85c4e90f880106bd34a8abb5b66b")]
 [assembly: System.Reflection.AssemblyProductAttribute("M02.BuildingRESTFulAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("M02.BuildingRESTFulAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

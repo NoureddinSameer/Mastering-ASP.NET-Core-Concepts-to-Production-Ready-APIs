@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nour\\OneDrive\\Desktop\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj": {}
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nour\\OneDrive\\Desktop\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj": {
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nour\\OneDrive\\Desktop\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj",
         "projectName": "M02.BuildingRESTFulAPI",
-        "projectPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj",
+        "projectPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\M02.BuildingRESTFulAPI.csproj",
         "packagesPath": "C:\\Users\\Nour\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\obj\\",
+        "outputPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\ControllerBasedAPI\\M02.BuildingRESTFulAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
