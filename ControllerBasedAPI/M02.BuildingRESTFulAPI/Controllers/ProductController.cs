@@ -76,6 +76,28 @@ public class ProductController(ProductRepository repository) : ControllerBase
                               routeValues: new { productId = product.Id },
                               value: ProductResponse.FromModel(product));
     }
+    [HttpPost("{productId:guid}/reviews")]
+    public IActionResult CreateProductReview(Guid productId, CreateProductReviewRequest request)
+    {
+        if(!repository.ExistsById(productId))
+            return NotFound($"Product with id '{productId}' not found");
+
+        var ProductReview = new ProductReview
+        {
+            Id = Guid.NewGuid(),
+            ProductId = productId,
+            Reviewer = request.Reviewer,
+            Stars = request.Stars
+        };
+
+        repository.AddProductReview(ProductReview);
+
+        return Created(
+            $"/api/products/{productId}/reviews/{ProductReview.Id}",
+            ProductReviewResponse.FromModel(ProductReview)
+        );
+    }
+
     [HttpPut("{ProductId:guid}")]
     public IActionResult Put(Guid productId, UpdateProductRequest request)
     {

@@ -17,14 +17,21 @@ GET {{baseUrl}}/api/products/{{productId}}
 
 ###
 GET {{baseUrl}}/api/products/{{productId}}?includeReviews=true
-
 ###
 POST {{baseUrl}}/api/products
 Content-Type: application/json
 
 {
   "name": "keyboard",
-  "price": 49.99
+  "price": 34.99
+}
+###
+POST {{baseUrl}}/api/products/{{productId}}/reviews
+Content-Type: application/json
+
+{
+  "reviewer": "Kevin Kelo",
+  "stars": 3
 }
 
 ### this link we get it from the previous header location that we get it from the post request
