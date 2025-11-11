@@ -25,3 +25,7 @@ C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal\obj\Debug\net9.0\M06.UrlQueryStringVersioningMinimal.pdb
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal\obj\Debug\net9.0\M06.UrlQueryStringVersioningMinimal.genruntimeconfig.cache
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal\obj\Debug\net9.0\ref\M06.UrlQueryStringVersioningMinimal.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal\bin\Debug\net9.0\Asp.Versioning.Abstractions.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal\bin\Debug\net9.0\Asp.Versioning.Http.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal\obj\Debug\net9.0\M06.UrlQueryStringVersioningMinimal.csproj.AssemblyReference.cache
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M06.UrlQueryStringVersioningMinimal\obj\Debug\net9.0\M06.UrlQ.B77B90A5.Up2Date
