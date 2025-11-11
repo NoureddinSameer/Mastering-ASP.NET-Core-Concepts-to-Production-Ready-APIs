@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jESayhY42Cs=",
+  "dgSpecHash": "wa84kPROPZk=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "c:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nour\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
+    "C:\\Users\\Nour\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
+    "C:\\Users\\Nour\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
