@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("M06.UrlQueryStringVersioningMinimal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d973f44068fab6f847ffc0a78ad91189d136c610")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbea19e1181885ddbfc293d2c928f63c0317e323")]
 [assembly: System.Reflection.AssemblyProductAttribute("M06.UrlQueryStringVersioningMinimal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("M06.UrlQueryStringVersioningMinimal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

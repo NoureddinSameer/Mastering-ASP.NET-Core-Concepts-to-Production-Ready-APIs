@@ -3,11 +3,11 @@ using M06.UrlQueryStringVersioningMinimal.Data;
 using M06.UrlQueryStringVersioningMinimal.Responses.V1;
 using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace M06.UrlQueryStringVersioningMinimal.Endpoints;
+namespace M06.UrlQueryStringVersioningMinimal.Endpoints.V1;
 
 public static class ProductEndpoints
 {
-    public static RouteGroupBuilder MapProductEndpoints(this IEndpointRouteBuilder app)
+    public static RouteGroupBuilder MapProductEndpointsV1(this IEndpointRouteBuilder app)
     {
          var productApi = app.MapGroup("api/products");
 
