@@ -25,3 +25,7 @@ C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\obj\Debu
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\obj\Debug\net9.0\M08.MediaVersioningMinimal.pdb
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\obj\Debug\net9.0\M08.MediaVersioningMinimal.genruntimeconfig.cache
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\obj\Debug\net9.0\ref\M08.MediaVersioningMinimal.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\bin\Debug\net9.0\Asp.Versioning.Abstractions.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\bin\Debug\net9.0\Asp.Versioning.Http.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\obj\Debug\net9.0\M08.MediaVersioningMinimal.csproj.AssemblyReference.cache
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M08.MediaVersioningMinimal\obj\Debug\net9.0\M08.Medi.3D56194D.Up2Date
