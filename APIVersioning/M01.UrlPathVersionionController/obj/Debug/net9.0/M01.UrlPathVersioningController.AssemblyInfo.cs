@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("M01.UrlPathVersioningController")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2b933e2faea8d5655f12ee1d765c07767012c5c")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8383d0b1447b35f72c9afbd0a593ae23897e6e46")]
+>>>>>>> origin/APIVersioning
 [assembly: System.Reflection.AssemblyProductAttribute("M01.UrlPathVersioningController")]
 [assembly: System.Reflection.AssemblyTitleAttribute("M01.UrlPathVersioningController")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
