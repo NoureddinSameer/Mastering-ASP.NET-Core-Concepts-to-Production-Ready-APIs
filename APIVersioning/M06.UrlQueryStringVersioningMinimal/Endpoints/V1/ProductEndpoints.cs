@@ -11,12 +11,13 @@ public static class ProductEndpoints
 {
     public static RouteGroupBuilder MapProductEndpointsV1(this IEndpointRouteBuilder app,ApiVersionSet apiVersionSet)
     {
-         var productApi = app
-            .MapGroup("api/products")
-            .WithApiVersionSet(apiVersionSet)
-            .HasApiVersion(new ApiVersion(1, 0));
+        var productApi = app
+           .MapGroup("api/products")
+           .WithApiVersionSet(apiVersionSet)
+           .HasApiVersion(new ApiVersion(1, 0));
 
         productApi.MapGet("{productId:guid}", GetProductById)
+            .HasApiVersion(new ApiVersion(1))
             .WithName("GetProductByIdV1");
 
         return productApi;
