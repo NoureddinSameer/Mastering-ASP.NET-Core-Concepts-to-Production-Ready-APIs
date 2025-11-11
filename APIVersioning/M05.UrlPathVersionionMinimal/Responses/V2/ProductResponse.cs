@@ -1,12 +1,12 @@
 using M05.UrlPathVersionionMinimal.Models;
 
-namespace M05.UrlPathVersionionMinimal.Responses;
+namespace M05.UrlPathVersionionMinimal.Responses.V2;
 
 public sealed class ProductResponse
 {
     public Guid Id { get; set; }
     public string? Name { get; set; }
-    public decimal Price { get; set; }
+    public PriceResponse Price { get; set; } = null!;
 
     private ProductResponse()
     { }
@@ -19,7 +19,11 @@ public sealed class ProductResponse
         {
             Id = product.Id,
             Name = product.Name,
-            Price = product.Price
+            Price = new PriceResponse
+            {
+                Amount = product.Price,
+                Currency = "USD"
+            }
         };
 
         return response;

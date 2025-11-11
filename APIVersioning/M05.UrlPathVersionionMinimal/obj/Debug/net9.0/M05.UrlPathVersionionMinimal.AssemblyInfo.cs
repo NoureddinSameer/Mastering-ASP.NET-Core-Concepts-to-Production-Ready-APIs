@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("M05.UrlPathVersionionMinimal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d916400a2fce1eb56b1b66dbe81bcde7eb7d8084")]
 [assembly: System.Reflection.AssemblyProductAttribute("M05.UrlPathVersionionMinimal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("M05.UrlPathVersionionMinimal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
