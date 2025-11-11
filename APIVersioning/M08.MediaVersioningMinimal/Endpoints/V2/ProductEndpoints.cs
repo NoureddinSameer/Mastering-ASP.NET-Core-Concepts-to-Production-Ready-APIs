@@ -1,4 +1,6 @@
 
+using Asp.Versioning;
+using Asp.Versioning.Builder;
 using M08.MediaVersioningMinimal.Data;
 using M08.MediaVersioningMinimal.Responses.V2;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -7,11 +9,16 @@ namespace M08.MediaVersioningMinimal.Endpoints.V2;
 
 public static class ProductEndpoints
 {
-    public static RouteGroupBuilder MapProductEndpointsV2(this IEndpointRouteBuilder app)
+    public static RouteGroupBuilder MapProductEndpointsV2(this IEndpointRouteBuilder app, ApiVersionSet apiVersionSet)
     {
-        var productApi = app.MapGroup("api/products");
+        var productApi = app
+           .MapGroup("api/products")
+           .WithApiVersionSet(apiVersionSet)
+           .HasApiVersion(new ApiVersion(2, 0));
 
-        productApi.MapGet("{productId:guid}", GetProductById).WithName(nameof(GetProductById));
+        productApi
+          .MapGet("{productId:guid}", GetProductById)
+          .WithName("GetProductByIdV2");
 
         return productApi;
     }

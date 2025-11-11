@@ -5,3 +5,10 @@
 ###
 GET {{baseUrl}}/api/products/{{productId}}
 
+###
+GET {{baseUrl}}/api/products/{{productId}}
+Accept: application/json;v=1.0
+
+###
+GET {{baseUrl}}/api/products/{{productId}}
+Accept: application/json;v=2.0
