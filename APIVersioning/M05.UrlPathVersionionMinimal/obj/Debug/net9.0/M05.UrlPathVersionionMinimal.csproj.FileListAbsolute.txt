@@ -25,3 +25,7 @@ C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\obj\De
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\obj\Debug\net9.0\M05.UrlPathVersionionMinimal.pdb
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\obj\Debug\net9.0\M05.UrlPathVersionionMinimal.genruntimeconfig.cache
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\obj\Debug\net9.0\ref\M05.UrlPathVersionionMinimal.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\obj\Debug\net9.0\M05.UrlPathVersionionMinimal.csproj.AssemblyReference.cache
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\bin\Debug\net9.0\Asp.Versioning.Abstractions.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\bin\Debug\net9.0\Asp.Versioning.Http.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M05.UrlPathVersionionMinimal\obj\Debug\net9.0\M05.UrlP.752AB696.Up2Date

@@ -1,7 +1,8 @@
 
 using Asp.Versioning;
 using M05.UrlPathVersionionMinimal.Data;
-using M05.UrlPathVersionionMinimal.Endpoints;
+using M05.UrlPathVersionionMinimal.Endpoints.V1;
+using M05.UrlPathVersionionMinimal.Endpoints.V2;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,8 +19,14 @@ builder.Services.AddApiVersioning(options =>
 
 var app = builder.Build();
 
+var apiVersionSet = app.NewApiVersionSet()
+    .HasApiVersion(new ApiVersion(1))
+    .HasApiVersion(new ApiVersion(2))
+    .ReportApiVersions()
+    .Build();
 
-app.MapProductEndpoints();
+app.MapProductEndpointsV1(apiVersionSet);
+app.MapProductEndpointsV2(apiVersionSet);
 
 
 app.Run();
