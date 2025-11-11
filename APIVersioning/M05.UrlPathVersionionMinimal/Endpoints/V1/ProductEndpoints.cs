@@ -23,12 +23,10 @@ public static class ProductEndpoints
         .HasApiVersion(new ApiVersion(1, 0));
 
         defaultApi.MapGet("{productId:guid}", GetProductById)
-        .HasApiVersion(new ApiVersion(1))
         .WithName("GetProductByIdDefault");
 
 
         productApi.MapGet("{productId:guid}", GetProductById)
-        .HasApiVersion(new ApiVersion(1))
         .WithName("GetProductByIdV1");
 
 
