@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj": {}
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj": {
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj",
+        "projectUniqueName": "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj",
         "projectName": "M06.UrlQueryStringVersioningMinimal",
-        "projectPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj",
+        "projectPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\M06.UrlQueryStringVersioningMinimal.csproj",
         "packagesPath": "C:\\Users\\Nour\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\obj\\",
+        "outputPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M06.UrlQueryStringVersioningMinimal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
