@@ -1,6 +1,6 @@
 using M01.UrlPathVersioningController.Models;
 
-namespace M01.UrlPathVersioningController.Responses;
+namespace M01.UrlPathVersioningController.Responses.V1;
 
 public sealed class ProductResponse
 {
