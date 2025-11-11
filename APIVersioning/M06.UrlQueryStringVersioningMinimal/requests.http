@@ -6,3 +6,9 @@
 ###
 GET {{baseUrl}}/api/products/{{productId}}
 
+###
+GET {{baseUrl}}/api/products/{{productId}}?api-version=1.0
+
+###
+GET {{baseUrl}}/api/products/{{productId}}?api-version=2.0
+
