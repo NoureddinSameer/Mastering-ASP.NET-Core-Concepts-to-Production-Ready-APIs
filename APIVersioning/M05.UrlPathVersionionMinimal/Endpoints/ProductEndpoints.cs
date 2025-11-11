@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using M05.UrlPathVersionionMinimal.Data;
-using M05.UrlPathVersionionMinimal.Responses;
+using M05.UrlPathVersionionMinimal.Responses.V1;
 
 
 namespace M05.UrlPathVersionionMinimal.Endpoints;

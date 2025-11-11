@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj": {}
+    "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj": {
+    "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj",
+        "projectUniqueName": "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj",
         "projectName": "M05.UrlPathVersionionMinimal",
-        "projectPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj",
+        "projectPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M05.UrlPathVersionionMinimal\\M05.UrlPathVersionionMinimal.csproj",
         "packagesPath": "C:\\Users\\Nour\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\APIVersioning\\M05.UrlPathVersionionMinimal\\obj\\",
+        "outputPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\Mastering-ASP.NET-Core-Concepts-to-Production-Ready-APIs\\APIVersioning\\M05.UrlPathVersionionMinimal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
