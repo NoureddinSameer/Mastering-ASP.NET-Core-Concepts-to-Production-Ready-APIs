@@ -25,3 +25,7 @@ C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\obj\Deb
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\obj\Debug\net9.0\M07.HeaderVersioningMinimal.pdb
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\obj\Debug\net9.0\M07.HeaderVersioningMinimal.genruntimeconfig.cache
 C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\obj\Debug\net9.0\ref\M07.HeaderVersioningMinimal.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\bin\Debug\net9.0\Asp.Versioning.Abstractions.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\bin\Debug\net9.0\Asp.Versioning.Http.dll
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\obj\Debug\net9.0\M07.HeaderVersioningMinimal.csproj.AssemblyReference.cache
+C:\Users\Nour\OneDrive\Desktop\APIVersioning\M07.HeaderVersioningMinimal\obj\Debug\net9.0\M07.Head.5B6B76E1.Up2Date

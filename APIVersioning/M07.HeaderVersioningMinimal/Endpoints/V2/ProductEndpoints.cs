@@ -3,11 +3,11 @@ using M07.HeaderVersioningMinimal.Data;
 using M07.HeaderVersioningMinimal.Responses.V1;
 using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace M07.HeaderVersioningMinimal.Endpoints;
+namespace M07.HeaderVersioningMinimal.Endpoints.V2;
 
 public static class ProductEndpoints
 {
-    public static RouteGroupBuilder MapProductEndpoints(this IEndpointRouteBuilder app)
+    public static RouteGroupBuilder MapProductEndpointsV2(this IEndpointRouteBuilder app)
     {
          var productApi = app.MapGroup("api/products");
 
