@@ -1,0 +1,91 @@
+@baseUrl = https://localhost:5191
+
+@productId = 2779ee47-10b0-4bd7-8342-404006aa1392
+
+### Options
+OPTIONS {{baseUrl}}/api/products
+
+### Options
+HEAD {{baseUrl}}/api/products/{{productId}}
+
+###
+GET {{baseUrl}}/api/products?page=4&pageSize=4
+
+
+###
+GET {{baseUrl}}/api/products/{{productId}}
+
+###
+GET {{baseUrl}}/api/products/{{productId}}?includeReviews=true
+
+###
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "keyboard",
+  "price": 34.99
+}
+###
+POST {{baseUrl}}/api/products/{{productId}}/reviews
+Content-Type: application/json
+
+{
+  "reviewer": "Kevin Kelo",
+  "stars": 3
+}
+
+### this link we get it from the previous header location that we get it from the post request
+GET https://localhost:5191/api/products/1b79f60a-5796-4d9d-a438-015eb12c57cb
+
+###
+PUT {{baseUrl}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "chocolate bar",
+  "price": 3.50
+}
+
+###
+PATCH {{baseUrl}}/api/products/{{productId}}
+Content-Type: application/json-patch+json
+
+[
+  {
+    "op": "replace",
+    "path": "/price",
+    "value": 2.99
+  }
+]
+
+### Will cause 400 error because no JSON Patch payload was sent
+PATCH {{baseUrl}}/api/products/{{productId}}
+Content-Type: application/json-patch+json
+
+
+###
+DELETE {{baseUrl}}/api/products/{{productId}}
+
+
+###
+POST {{baseUrl}}/api/products/process
+
+@JobId = 8afa25bd-2a65-4f61-a6fb-34541da97849
+
+###
+GET {{baseUrl}}/api/products/status/{{JobId}}
+
+###
+GET {{baseUrl}}/api/products/csv
+
+###
+GET {{baseUrl}}/api/products/Physical-csv-file
+
+###
+GET {{baseUrl}}/api/products/products-legacy
+
+###
+GET {{baseUrl}}/api/products/legacy-products
+
+

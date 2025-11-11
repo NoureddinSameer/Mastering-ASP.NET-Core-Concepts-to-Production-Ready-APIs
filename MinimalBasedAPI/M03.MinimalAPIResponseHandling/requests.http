@@ -1,0 +1,24 @@
+@baseUrl = https://localhost:5191
+
+@productId = 2779ee47-10b0-4bd7-8342-404006aa1392
+
+
+###
+GET {{baseUrl}}/text
+
+###
+GET {{baseUrl}}/json
+
+###
+GET {{baseUrl}}/api/products-le-ir/{{productId}}
+
+###
+GET {{baseUrl}}/api/products-mr-ir/{{productId}}
+
+###
+GET {{baseUrl}}/api/products-le-tr/{{productId}}
+
+###
+GET {{baseUrl}}/api/products-mr-tr/{{productId}}
+
+
