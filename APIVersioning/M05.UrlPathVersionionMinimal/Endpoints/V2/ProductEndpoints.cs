@@ -14,10 +14,11 @@ public static class ProductEndpoints
         var productApi = app
         .MapGroup("api/v{apiVersion:apiVersion}/products")
         .WithApiVersionSet(apiVersionSet)
-        .HasApiVersion(new ApiVersion(2,0));
+        .HasApiVersion(new ApiVersion(2, 0));
 
 
         productApi.MapGet("{productId:guid}", GetProductById)
+        .HasApiVersion(new ApiVersion(2))
         .WithName("GetProductByIdV2");
 
         return productApi;
