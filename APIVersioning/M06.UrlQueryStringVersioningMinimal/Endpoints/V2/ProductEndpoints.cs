@@ -17,8 +17,8 @@ public static class ProductEndpoints
 
         productApi
           .MapGet("{productId:guid}", GetProductById)
-          .HasApiVersion(new ApiVersion(2))
           .WithName("GetProductByIdV2");
+
         return productApi;
     }
 
