@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj": {}
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj": {
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj",
+        "projectUniqueName": "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj",
         "projectName": "M01.EFCoreCodeFirst",
-        "projectPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj",
+        "projectPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\M01.EFCoreCodeFirst.csproj",
         "packagesPath": "C:\\Users\\Nour\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\obj\\",
+        "outputPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M01.EFCoreCodeFirst\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,12 @@
           "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.5, )"
             },
