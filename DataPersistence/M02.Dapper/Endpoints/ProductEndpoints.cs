@@ -1,8 +1,7 @@
-using M02.Dapper.Models;
-using M02.Dapper.Requests;
-using M02.Dapper.Responses;
 using Microsoft.AspNetCore.Http.HttpResults;
-
+using M02.Dapper.Models;
+using M02.Dapper.Responses;
+using M02.Dapper.Requests;
 
 namespace M02.Dapper.Endpoints;
 
@@ -22,7 +21,7 @@ public static class ProductEndpoints
         return productApi;
     }
 
-    private static IResult GetPaged(
+    private static async Task<IResult> GetPaged(
         ProductRepository repository,
         int page = 1,
         int pageSize = 10)
@@ -30,41 +29,42 @@ public static class ProductEndpoints
         page = Math.Max(1, page);
         pageSize = Math.Clamp(pageSize, 1, 100);
 
-        int totalCount = repository.GetProductsCount();
+        int totalCount = await repository.GetProductsCountAsync();
 
-        var products = repository.GetProductsPage(page, pageSize);
+        var products = await repository.GetProductsPageAsync(page, pageSize);
 
         var pagedResult = PagedResult<ProductResponse>.Create(
             ProductResponse.FromModels(products),
             totalCount,
             page,
-            pageSize
-        );
+            pageSize);
 
         return Results.Ok(pagedResult);
     }
 
-    private static Results<Ok<ProductResponse>, NotFound<string>> GetProductById(
+    private static async Task<Results<Ok<ProductResponse>, NotFound<string>>> GetProductById(
         Guid productId,
         ProductRepository repository,
         bool includeReviews = false)
     {
-        var product = repository.GetProductById(productId);
+        var product = await repository.GetProductByIdAsync(productId);
 
         if (product is null)
-            return TypedResults.NotFound($"Product with id '{productId}' not found");
+            return TypedResults.NotFound($"Product with Id '{productId}' not found");
 
         List<ProductReview>? reviews = null;
 
-        if (includeReviews == true)
-            reviews = repository.GetProductReviews(productId);
+        if (includeReviews)
+        {
+            reviews = await repository.GetProductReviewsAsync(productId);
+        }
 
         return TypedResults.Ok(ProductResponse.FromModel(product, reviews));
     }
 
-    private static IResult CreateProduct(CreateProductRequest request, ProductRepository repository)
+    private static async Task<IResult> CreateProduct(CreateProductRequest request, ProductRepository repository)
     {
-         if (repository.ExistsByName(request.Name))
+        if (await repository.ExistsByNameAsync(request.Name))
             return Results.Conflict($"A product with the name '{request.Name}' already exists.");
 
         var product = new Product
@@ -74,20 +74,20 @@ public static class ProductEndpoints
             Price = request.Price
         };
 
-        repository.AddProduct(product);
+        await repository.AddProductAsync(product);
 
         return Results.CreatedAtRoute(routeName: nameof(GetProductById),
                               routeValues: new { productId = product.Id },
                               value: ProductResponse.FromModel(product));
     }
 
-    private static IResult CreateProductReview(
+    private static async Task<IResult> CreateProductReview(
         Guid productId,
         CreateProductReviewRequest request,
         ProductRepository repository)
     {
-        if(!repository.ExistsById(productId))
-            return Results.NotFound($"Product with id '{productId}' not found");
+        if (!await repository.ExistsByIdAsync(productId))
+            return Results.NotFound($"Product with Id '{productId}' not found");
 
         var productReview = new ProductReview
         {
@@ -97,37 +97,38 @@ public static class ProductEndpoints
             Stars = request.Stars
         };
 
-        repository.AddProductReview(productReview);
+        await repository.AddProductReviewAsync(productReview);
 
         return Results.Created(
-            $"/api/products/{productId}/reviews/{productReview.Id}",
-            ProductReviewResponse.FromModel(productReview)
+                $"/api/products/{productId}/reviews/{productReview.Id}",
+                ProductReviewResponse.FromModel(productReview)
         );
     }
 
-    private static IResult Put(Guid productId, UpdateProductRequest request, ProductRepository repository)
+    private static async Task<IResult> Put(Guid productId, UpdateProductRequest request, ProductRepository repository)
     {
-        var product = repository.GetProductById(productId);
+        var product = await repository.GetProductByIdAsync(productId);
+
         if (product is null)
-            return Results.NotFound($"Product with id '{productId}' not found");
+            return Results.NotFound($"Product with Id '{productId}' not found");
 
         product.Name = request.Name;
         product.Price = request.Price ?? 0;
 
-        var success = repository.UpdateProduct(product);
+        var succeeded = await repository.UpdateProductAsync(product);
 
-        if (!success)
+        if (!succeeded)
             return Results.StatusCode(500);
 
         return Results.NoContent();
     }
 
-    private static IResult Delete(Guid productId, ProductRepository repository)
+    private static async Task<IResult> Delete(Guid productId, ProductRepository repository)
     {
-        if (!repository.ExistsById(productId))
-            return Results.NotFound($"Product with id '{productId}' not found");
+        if (!await repository.ExistsByIdAsync(productId))
+            return Results.NotFound($"Product with Id '{productId}' not found");
 
-        var succeeded = repository.DeleteProduct(productId);
+        var succeeded = await repository.DeleteProductAsync(productId);
 
         if (!succeeded)
             return Results.StatusCode(500);
