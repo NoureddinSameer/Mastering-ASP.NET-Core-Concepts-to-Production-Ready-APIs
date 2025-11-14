@@ -6,57 +6,59 @@ using M02.Dapper.Models;
 
 public class ProductRepository(IDbConnection _db)
 {
-    public int GetProductsCount() =>
-        _db.ExecuteScalar<int>("SELECT COUNT(*) FROM Products");
 
+    public async Task<int> GetProductsCountAsync() =>
+         await _db.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM Products");
 
-    public List<Product> GetProductsPage(int page = 1, int pageSize = 10)
+    public async Task<List<Product>> GetProductsPageAsync(int page = 1, int pageSize = 10)
     {
-        return _db.Query<Product>(
+        var result = await _db.QueryAsync<Product>(
            "SELECT * FROM Products LIMIT @Limit OFFSET @Offset",
            new { Limit = pageSize, Offset = (page - 1) * pageSize }
-        ).ToList();
+        );
+
+        return result.ToList();
     }
 
-    public Product? GetProductById(Guid productId)
+    public async Task<Product?> GetProductByIdAsync(Guid productId)
     {
-        return _db.QuerySingleOrDefault<Product>(
+        return await _db.QuerySingleOrDefaultAsync<Product>(
             "SELECT * FROM Products WHERE Id = @Id", new { Id = productId.ToString() });
     }
 
-    public List<ProductReview> GetProductReviews(Guid productId)
+    public async Task<List<ProductReview>> GetProductReviewsAsync(Guid productId)
     {
-        return _db.Query<ProductReview>(
+        var result = await _db.QueryAsync<ProductReview>(
             "SELECT * FROM ProductReviews WHERE ProductId = @ProductId",
-            new { ProductId = productId.ToString() }
-            ).ToList();
+            new { ProductId = productId.ToString() });
+        return result.ToList();
     }
 
-    public ProductReview? GetReview(Guid productId, Guid reviewId)
+    public async Task<ProductReview?> GetReviewAsync(Guid productId, Guid reviewId)
     {
-        return _db.QuerySingleOrDefault<ProductReview>(
+        return await _db.QuerySingleOrDefaultAsync<ProductReview>(
             "SELECT * FROM ProductReviews WHERE ProductId = @ProductId AND Id = @Id",
             new { ProductId = productId, Id = reviewId.ToString() });
     }
 
-    public bool AddProduct(Product product)
+    public async Task<bool> AddProductAsync(Product product)
     {
-        var rows = _db.Execute(
+        var rows = await _db.ExecuteAsync(
             "INSERT INTO Products (Id, Name, Price) VALUES (@Id, @Name, @Price)",
             new { product.Id, product.Name, product.Price });
         return rows > 0;
     }
 
-    public bool AddProductReview(ProductReview review)
+    public async Task<bool> AddProductReviewAsync(ProductReview review)
     {
-        var exists = _db.ExecuteScalar<int>(
+        var exists = await _db.ExecuteScalarAsync<int>(
             "SELECT COUNT(*) FROM Products WHERE Id = @Id", new { Id = review.ProductId.ToString() });
         if (exists == 0) return false;
 
-        var rows = _db.Execute("""
-                INSERT INTO ProductReviews (Id, ProductId, Reviewer, Stars)
-                VALUES (@Id, @ProductId, @Reviewer, @Stars)
-                """,
+        var rows = await _db.ExecuteAsync("""
+        INSERT INTO ProductReviews (Id, ProductId, Reviewer, Stars)
+        VALUES (@Id, @ProductId, @Reviewer, @Stars)
+        """,
             new
             {
                 Id = review.Id.ToString(),
@@ -68,9 +70,9 @@ public class ProductRepository(IDbConnection _db)
         return rows > 0;
     }
 
-    public bool UpdateProduct(Product updatedProduct)
+    public async Task<bool> UpdateProductAsync(Product updatedProduct)
     {
-        var rows = _db.Execute(
+        var rows = await _db.ExecuteAsync(
             "UPDATE Products SET Name = @Name, Price = @Price WHERE Id = @Id",
             new
             {
@@ -82,22 +84,22 @@ public class ProductRepository(IDbConnection _db)
         return rows > 0;
     }
 
-    public bool DeleteProduct(Guid id)
+    public async Task<bool> DeleteProductAsync(Guid id)
     {
-        var rows = _db.Execute("DELETE FROM Products WHERE Id = @Id", new { Id = id.ToString() });
-        _db.ExecuteAsync("DELETE FROM ProductReviews WHERE ProductId = @Id", new { Id = id.ToString() });
+        var rows = await _db.ExecuteAsync("DELETE FROM Products WHERE Id = @Id", new { Id = id.ToString() });
+        await _db.ExecuteAsync("DELETE FROM ProductReviews WHERE ProductId = @Id", new { Id = id.ToString() });
         return rows > 0;
     }
-    public bool ExistsById(Guid id)
+
+    public async Task<bool> ExistsByIdAsync(Guid id)
     {
-        return _db.ExecuteScalar<bool>(
+        return await _db.ExecuteScalarAsync<bool>(
             "SELECT EXISTS(SELECT 1 FROM Products WHERE Id = @Id)", new { Id = id.ToString() });
     }
 
-    public bool ExistsByName(string? name)
+    public async Task<bool> ExistsByNameAsync(string? name)
     {
-        return _db.ExecuteScalar<bool>(
+        return await _db.ExecuteScalarAsync<bool>(
             "SELECT EXISTS(SELECT 1 FROM Products WHERE Name = @Name COLLATE NOCASE)", new { Name = name });
-
     }
 }
