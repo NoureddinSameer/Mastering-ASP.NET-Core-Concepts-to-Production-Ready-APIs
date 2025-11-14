@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IProductRepository, EFProductRepository>();
-// builder.Services.AddScoped<IProductRepository,DapperProductRepository>();
+// builder.Services.AddScoped<IProductRepository, EFProductRepository>();
+builder.Services.AddScoped<IProductRepository,DapperProductRepository>();
 
 
 builder.Services.Configure<JsonOptions>(options =>
@@ -27,7 +27,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddScoped<IDbConnection>(_ =>
-    new SqliteConnection("Data Source=app.db"));
+    new SqliteConnection("Data Source = app.db"));
 
 var app = builder.Build();
 

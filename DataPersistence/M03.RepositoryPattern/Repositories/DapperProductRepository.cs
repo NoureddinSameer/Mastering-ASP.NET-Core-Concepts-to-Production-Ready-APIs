@@ -24,14 +24,14 @@ public class DapperProductRepository(IDbConnection _db) : IProductRepository
     public async Task<Product?> GetProductByIdAsync(Guid productId)
     {
         return await _db.QuerySingleOrDefaultAsync<Product>(
-            "SELECT * FROM Products WHERE Id = @Id", new { Id = productId.ToString() });
+            "SELECT * FROM Products WHERE Id = @Id", new { Id = productId });
     }
 
     public async Task<List<ProductReview>> GetProductReviewsAsync(Guid productId)
     {
         var result = await _db.QueryAsync<ProductReview>(
             "SELECT * FROM ProductReviews WHERE ProductId = @ProductId",
-            new { ProductId = productId.ToString() });
+            new { ProductId = productId });
         return result.ToList();
     }
 
@@ -39,7 +39,7 @@ public class DapperProductRepository(IDbConnection _db) : IProductRepository
     {
         return await _db.QuerySingleOrDefaultAsync<ProductReview>(
             "SELECT * FROM ProductReviews WHERE ProductId = @ProductId AND Id = @Id",
-            new { ProductId = productId, Id = reviewId.ToString() });
+            new { ProductId = productId, Id = reviewId });
     }
 
     public async Task<bool> AddProductAsync(Product product)
@@ -53,7 +53,7 @@ public class DapperProductRepository(IDbConnection _db) : IProductRepository
     public async Task<bool> AddProductReviewAsync(ProductReview review)
     {
         var exists = await _db.ExecuteScalarAsync<int>(
-            "SELECT COUNT(*) FROM Products WHERE Id = @Id", new { Id = review.ProductId.ToString() });
+            "SELECT COUNT(*) FROM Products WHERE Id = @Id", new { Id = review.ProductId });
         if (exists == 0) return false;
 
         var rows = await _db.ExecuteAsync("""
@@ -62,8 +62,8 @@ public class DapperProductRepository(IDbConnection _db) : IProductRepository
         """,
             new
             {
-                Id = review.Id.ToString(),
-                ProductId = review.ProductId.ToString(),
+                Id = review.Id,
+                ProductId = review.ProductId,
                 review.Reviewer,
                 review.Stars
             });
@@ -77,7 +77,7 @@ public class DapperProductRepository(IDbConnection _db) : IProductRepository
             "UPDATE Products SET Name = @Name, Price = @Price WHERE Id = @Id",
             new
             {
-                Id = updatedProduct.Id.ToString(),
+                Id = updatedProduct.Id,
                 updatedProduct.Name,
                 updatedProduct.Price
             });
@@ -87,15 +87,15 @@ public class DapperProductRepository(IDbConnection _db) : IProductRepository
 
     public async Task<bool> DeleteProductAsync(Guid id)
     {
-        var rows = await _db.ExecuteAsync("DELETE FROM Products WHERE Id = @Id", new { Id = id.ToString() });
-        await _db.ExecuteAsync("DELETE FROM ProductReviews WHERE ProductId = @Id", new { Id = id.ToString() });
+        var rows = await _db.ExecuteAsync("DELETE FROM Products WHERE Id = @Id", new { Id = id });
+        await _db.ExecuteAsync("DELETE FROM ProductReviews WHERE ProductId = @Id", new { Id = id });
         return rows > 0;
     }
 
     public async Task<bool> ExistsByIdAsync(Guid id)
     {
         return await _db.ExecuteScalarAsync<bool>(
-            "SELECT EXISTS(SELECT 1 FROM Products WHERE Id = @Id)", new { Id = id.ToString() });
+            "SELECT EXISTS(SELECT 1 FROM Products WHERE Id = @Id)", new { Id = id });
     }
 
     public async Task<bool> ExistsByNameAsync(string? name)
