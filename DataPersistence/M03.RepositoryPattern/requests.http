@@ -1,18 +1,24 @@
 @baseUrl = https://localhost:7062
-@productId = 2779EE47-10B0-4BD7-8342-404006AA1392
- 
+
+@productId = 2779ee47-10b0-4bd7-8342-404006aa1392
+
+
 ###
 GET {{baseUrl}}/api/products?page=1&pageSize=100
+
+
+###
+GET {{baseUrl}}/api/products/{{productId}}
 
 ###
 GET {{baseUrl}}/api/products/{{productId}}?includeReviews=true
 
-### 
+###
 POST {{baseUrl}}/api/products
 Content-Type: application/json
 
 {
-  "name": "Keyboard",
+  "name": "keyboard",
   "price": 34.99
 }
 
@@ -26,14 +32,20 @@ Content-Type: application/json
   "stars": 3
 }
 
-### 
+### this link we get it from the previous header location that we get it from the post request
+GET  https://localhost:7062/api/products/ef60f888-d785-4d2c-8bf2-464e6cb18c68
+
+###
 PUT {{baseUrl}}/api/products/{{productId}}
 Content-Type: application/json
 
 {
-    "name": "chocolate bar",
-    "price": 3.50
+  "name": "chocolate bar",
+  "price": 3.50
 }
 
-### DELETE
+
+
+###
 DELETE {{baseUrl}}/api/products/{{productId}}
+
