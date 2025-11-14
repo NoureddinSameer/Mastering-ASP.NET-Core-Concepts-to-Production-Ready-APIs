@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using M02.Dapper.Models;
 using M02.Dapper.Responses;
 using M02.Dapper.Requests;
+using M02.Dapper.Data;
 
 namespace M02.Dapper.Endpoints;
 

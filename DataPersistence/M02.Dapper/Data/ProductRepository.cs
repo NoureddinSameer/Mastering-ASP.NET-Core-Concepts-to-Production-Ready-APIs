@@ -1,8 +1,8 @@
-
-
 using System.Data;
 using Dapper;
 using M02.Dapper.Models;
+
+namespace M02.Dapper.Data;
 
 public class ProductRepository(IDbConnection _db)
 {
