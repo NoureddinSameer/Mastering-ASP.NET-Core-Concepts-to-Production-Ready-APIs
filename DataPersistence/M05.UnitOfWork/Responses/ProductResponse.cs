@@ -7,6 +7,7 @@ public class ProductResponse
     public Guid Id { get; set; }
     public string? Name { get; set; }
     public decimal Price { get; set; }
+    public decimal AverageRating { get; set; }
     public List<ProductReviewResponse>? Reviews { get; set; } = default;
 
     private ProductResponse() { }
@@ -20,7 +21,8 @@ public class ProductResponse
         {
             Id = product.Id,
             Name = product.Name,
-            Price = product.Price
+            Price = product.Price,
+            AverageRating = product.AverageRating
         };
 
         if (reviews != null)
