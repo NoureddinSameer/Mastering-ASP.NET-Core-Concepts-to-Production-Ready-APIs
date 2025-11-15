@@ -8,8 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.Configure<JsonOptions>(options =>
 {
