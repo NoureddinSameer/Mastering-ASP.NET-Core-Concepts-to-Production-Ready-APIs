@@ -34,41 +34,42 @@ public class ProductRepository(AppDbContext context) : IProductRepository
             .FirstOrDefaultAsync(r => r.ProductId == productId && r.Id == reviewId, ct);
     }
 
-    public async Task<bool> AddProductAsync(Product product, CancellationToken ct = default)
+    public void AddProduct(Product product)
     {
         context.Products.Add(product);
-        return await context.SaveChangesAsync(ct) > 0;
     }
 
-    public async Task<bool> AddProductReviewAsync(ProductReview review, CancellationToken ct = default)
+    public async Task AddProductReviewAsync(ProductReview review, CancellationToken ct = default)
     {
-        if (!await context.Products.AnyAsync(p => p.Id == review.ProductId, ct))
-            return false;
+        var product = await context.Products.FirstOrDefaultAsync(p => p.Id == review.ProductId, ct);
+        if (product is null)
+            throw new InvalidOperationException();
 
         context.ProductReviews.Add(review);
-        return await context.SaveChangesAsync(ct) > 0;
+        var reviews = await context.ProductReviews
+                            .Where(pr => pr.ProductId == review.ProductId)
+                            .ToListAsync(ct);
+        product.AverageRating = (decimal)Math.Round(reviews.Average(pr => pr.Stars), 1, MidpointRounding.AwayFromZero);
     }
 
-    public async Task<bool> UpdateProductAsync(Product updatedProduct, CancellationToken ct = default)
+    public async Task UpdateProductAsync(Product updatedProduct, CancellationToken ct = default)
     {
         var existingProduct = await context.Products.FirstOrDefaultAsync(p => p.Id == updatedProduct.Id, ct);
         if (existingProduct == null)
-            return false;
+            throw new InvalidOperationException();
 
         existingProduct.Name = updatedProduct.Name;
         existingProduct.Price = updatedProduct.Price;
 
-        return await context.SaveChangesAsync(ct) > 0;
     }
 
-    public async Task<bool> DeleteProductAsync(Guid id, CancellationToken ct = default)
+    public async Task DeleteProductAsync(Guid id, CancellationToken ct = default)
     {
         var product = await context.Products.FirstOrDefaultAsync(p => p.Id == id, ct);
         if (product == null)
-            return false;
+            throw new InvalidOperationException();
 
         context.Products.Remove(product);
-        return await context.SaveChangesAsync(ct) > 0;
     }
 
     public async Task<bool> ExistsByIdAsync(Guid id, CancellationToken ct = default)
