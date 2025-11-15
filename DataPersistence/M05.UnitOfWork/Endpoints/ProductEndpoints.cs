@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Http.HttpResults;
-using M05.UnitOfWork.Responses;
-using M05.UnitOfWork.Requests;
-using M05.UnitOfWork.Models;
 using M05.UnitOfWork.Interfaces;
+using M05.UnitOfWork.Responses;
+using M05.UnitOfWork.Models;
+using M05.UnitOfWork.Requests;
 
 namespace M05.UnitOfWork.Endpoints;
 
@@ -24,7 +24,7 @@ public static class ProductEndpoints
     }
 
     private static async Task<IResult> GetPaged(
-        IProductRepository repository,
+        IUnitOfWork uow,
         int page = 1,
         int pageSize = 10,
         CancellationToken ct = default)
@@ -32,8 +32,8 @@ public static class ProductEndpoints
         page = Math.Max(1, page);
         pageSize = Math.Clamp(pageSize, 1, 100);
 
-        int totalCount = await repository.GetProductsCountAsync(ct);
-        var products = await repository.GetProductsPageAsync(page, pageSize, ct);
+        int totalCount = await uow.Products.GetProductsCountAsync(ct);
+        var products = await uow.Products.GetProductsPageAsync(page, pageSize, ct);
 
         var pagedResult = PagedResult<ProductResponse>.Create(
             ProductResponse.FromModels(products),
@@ -46,11 +46,11 @@ public static class ProductEndpoints
 
     private static async Task<Results<Ok<ProductResponse>, NotFound<string>>> GetProductById(
         Guid productId,
-        IProductRepository repository,
+        IUnitOfWork uow,
         bool includeReviews = false,
         CancellationToken ct = default)
     {
-        var product = await repository.GetProductByIdAsync(productId, ct);
+        var product = await uow.Products.GetProductByIdAsync(productId, ct);
 
         if (product is null)
             return TypedResults.NotFound($"Product with Id '{productId}' not found");
@@ -58,17 +58,17 @@ public static class ProductEndpoints
         List<ProductReview>? reviews = null;
 
         if (includeReviews)
-            reviews = await repository.GetProductReviewsAsync(productId, ct);
+            reviews = await uow.Products.GetProductReviewsAsync(productId, ct);
 
         return TypedResults.Ok(ProductResponse.FromModel(product, reviews));
     }
 
     private static async Task<IResult> CreateProduct(
         CreateProductRequest request,
-        IProductRepository repository,
+        IUnitOfWork uow,
         CancellationToken ct = default)
     {
-        if (await repository.ExistsByNameAsync(request.Name, ct))
+        if (await uow.Products.ExistsByNameAsync(request.Name, ct))
             return Results.Conflict($"A product with the name '{request.Name}' already exists.");
 
         var product = new Product
@@ -78,7 +78,9 @@ public static class ProductEndpoints
             Price = request.Price
         };
 
-        await repository.AddProductAsync(product, ct);
+        uow.Products.AddProduct(product);
+
+        await uow.SaveChangesAsync(ct);
 
         return Results.CreatedAtRoute(
             routeName: nameof(GetProductById),
@@ -89,10 +91,10 @@ public static class ProductEndpoints
     private static async Task<IResult> CreateProductReview(
         Guid productId,
         CreateProductReviewRequest request,
-        IProductRepository repository,
+        IUnitOfWork uow,
         CancellationToken ct = default)
     {
-        if (!await repository.ExistsByIdAsync(productId, ct))
+        if (!await uow.Products.ExistsByIdAsync(productId, ct))
             return Results.NotFound($"Product with Id '{productId}' not found");
 
         var productReview = new ProductReview
@@ -103,7 +105,9 @@ public static class ProductEndpoints
             Stars = request.Stars
         };
 
-        await repository.AddProductReviewAsync(productReview, ct);
+        await uow.Products.AddProductReviewAsync(productReview, ct);
+
+        await uow.SaveChangesAsync(ct);
 
         return Results.Created(
             $"/api/products/{productId}/reviews/{productReview.Id}",
@@ -113,10 +117,10 @@ public static class ProductEndpoints
     private static async Task<IResult> Put(
         Guid productId,
         UpdateProductRequest request,
-        IProductRepository repository,
+        IUnitOfWork uow,
         CancellationToken ct = default)
     {
-        var product = await repository.GetProductByIdAsync(productId, ct);
+        var product = await uow.Products.GetProductByIdAsync(productId, ct);
 
         if (product is null)
             return Results.NotFound($"Product with Id '{productId}' not found");
@@ -124,26 +128,24 @@ public static class ProductEndpoints
         product.Name = request.Name;
         product.Price = request.Price ?? 0;
 
-        var succeeded = await repository.UpdateProductAsync(product, ct);
+        await uow.Products.UpdateProductAsync(product, ct);
 
-        if (!succeeded)
-            return Results.StatusCode(500);
+        await uow.SaveChangesAsync(ct);
 
         return Results.NoContent();
     }
 
     private static async Task<IResult> Delete(
         Guid productId,
-        IProductRepository repository,
+        IUnitOfWork uow,
         CancellationToken ct = default)
     {
-        if (!await repository.ExistsByIdAsync(productId, ct))
+        if (!await uow.Products.ExistsByIdAsync(productId, ct))
             return Results.NotFound($"Product with Id '{productId}' not found");
 
-        var succeeded = await repository.DeleteProductAsync(productId, ct);
+        await uow.Products.DeleteProductAsync(productId, ct);
 
-        if (!succeeded)
-            return Results.StatusCode(500);
+        await uow.SaveChangesAsync(ct);
 
         return Results.NoContent();
     }
