@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj": {}
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj": {
+    "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj",
+        "projectUniqueName": "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj",
         "projectName": "M04.CancellationTokenBenefit",
-        "projectPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj",
+        "projectPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\M04.CancellationTokenBenefit.csproj",
         "packagesPath": "C:\\Users\\Nour\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\obj\\",
+        "outputPath": "C:\\Users\\Nour\\OneDrive\\Desktop\\DataPersistence\\M04.CancellationTokenBenefit\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,12 @@
           "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.5, )"
             },
