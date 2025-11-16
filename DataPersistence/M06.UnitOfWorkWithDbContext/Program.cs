@@ -11,7 +11,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.Configure<JsonOptions>(options =>
 {
-    options.SerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault;
+    options.SerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
 });
 
 builder.Services.AddDbContext<AppDbContext>(options =>
