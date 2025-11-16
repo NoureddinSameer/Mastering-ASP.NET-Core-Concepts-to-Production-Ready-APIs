@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace M06.UnitOfWorkWithDbContext.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250516145807_Add-Average-Rating")]
+    [Migration("20251116065536_Add-Average-Rating")]
     partial class AddAverageRating
     {
         /// <inheritdoc />
