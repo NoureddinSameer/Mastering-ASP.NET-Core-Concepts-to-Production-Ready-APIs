@@ -42,10 +42,19 @@ public class ProductRepository(AppDbContext context) : IProductRepository
 
     public async Task<bool> AddProductReviewAsync(ProductReview review, CancellationToken ct = default)
     {
-        if (!await context.Products.AnyAsync(p => p.Id == review.ProductId, ct))
-            return false;
+        var product = await context.Products.FirstOrDefaultAsync(p => p.Id == review.ProductId, ct);
+
+        if (product is null)
+            throw new InvalidOperationException();
 
         context.ProductReviews.Add(review);
+
+        var reviews = await context.ProductReviews
+                            .Where(pr => pr.ProductId == review.ProductId)
+                            .ToListAsync(ct);
+
+        product.AverageRating = (decimal)Math.Round(reviews.Average(pr => pr.Stars), 1, MidpointRounding.AwayFromZero);
+
         return await context.SaveChangesAsync(ct) > 0;
     }
 
