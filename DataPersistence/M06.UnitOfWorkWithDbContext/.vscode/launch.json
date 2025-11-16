@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/M04.CancellationToken/bin/Debug/net9.0/M04.CancellationToken.dll",
+            "program": "${workspaceFolder}/M06.UnitOfWorkWithDbContext/bin/Debug/net9.0/M06.UnitOfWorkWithDbContext.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/M04.CancellationToken",
+            "cwd": "${workspaceFolder}/M06.UnitOfWorkWithDbContext",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
