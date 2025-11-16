@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/M04.CancellationToken/M04.CancellationToken.csproj",
+                "${workspaceFolder}/M06.UnitOfWorkWithDbContext/M06.UnitOfWorkWithDbContext.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/M04.CancellationToken/M04.CancellationToken.csproj",
+                "${workspaceFolder}/M06.UnitOfWorkWithDbContext/M06.UnitOfWorkWithDbContext.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/M04.CancellationToken/M04.CancellationToken.csproj"
+                "${workspaceFolder}/M06.UnitOfWorkWithDbContext/M06.UnitOfWorkWithDbContext.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
