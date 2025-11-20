@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options =>
 {
-    options.Filters.Add<TrackActionTimeFilter>(); // Global Filter Registrations
+    // options.Filters.Add<TrackActionTimeFilter>(); // Global Filter Registrations
 });
 
 var app = builder.Build();
