@@ -17,3 +17,16 @@ public class SampleActionFilter : IActionFilter
 
 
 }
+// Improve the above class to Async
+public class SampleActionFilterAsync : IAsyncActionFilter
+{
+    public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+    {
+        Console.WriteLine("Sample Action Filter Async Before");
+
+        await next();
+
+        Console.WriteLine("Sample Action Filter Async After");
+
+    }
+}
