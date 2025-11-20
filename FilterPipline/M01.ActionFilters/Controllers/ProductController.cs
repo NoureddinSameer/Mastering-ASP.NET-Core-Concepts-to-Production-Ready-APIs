@@ -5,6 +5,7 @@ namespace M01.FiltersController.Controllers;
 
 [ApiController]
 [Route("api/products")]
+[TrackActionTimeFilterV2]  // Controller level Registration
 public class ProductController() : ControllerBase
 {
 
