@@ -5,12 +5,12 @@ namespace M02.ResourceFilters.Controllers;
 
 [ApiController]
 [Route("api/products")]
-
+[ServiceFilter(typeof(TenantValidationFilter))]
 public class ProductController() : ControllerBase
 {
 
     [HttpGet]
-    [ServiceFilter(typeof(TenantValidationFilter))]
+    // [ServiceFilter(typeof(TenantValidationFilter))]
     public IActionResult Get()
     {
         return Ok(new[] { "Keyboard [$52.99]", "Mouse, [$34.99]" });
