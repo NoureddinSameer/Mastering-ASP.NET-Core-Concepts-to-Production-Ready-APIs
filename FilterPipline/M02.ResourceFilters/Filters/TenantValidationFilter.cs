@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace M02.ResourceFilters.Filters;
 
-public class TenantValidationFilter(IConfiguration config) : IAsyncResourceFilter
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+public class TenantValidationFilter(IConfiguration config) : Attribute, IAsyncResourceFilter
 {
     public async Task OnResourceExecutionAsync(ResourceExecutingContext context, ResourceExecutionDelegate next)
     {
+
         var tenantId = context.HttpContext.Request.Headers["tenantId"].ToString();
         var apikey = context.HttpContext.Request.Headers["x-api-key"].ToString();
 
