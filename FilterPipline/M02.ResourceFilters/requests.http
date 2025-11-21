@@ -15,3 +15,20 @@ x-api-key: TenantAKey
 GET {{baseUrl}}/api/products
 tenantId: TenantA
 x-api-key: TenantAKeys
+
+
+### No filter on this route
+GET {{baseUrl}}/api/products/get2
+tenantId: TenantA
+x-api-key: TenantAKey
+
+### No filter on this route
+GET {{baseUrl}}/api/products/get2
+tenantId: TenantAa
+x-api-key: TenantAKey
+
+### No filter on this route
+GET {{baseUrl}}/api/products/get2
+tenantId: TenantA
+x-api-key: TenantAKeys
+
