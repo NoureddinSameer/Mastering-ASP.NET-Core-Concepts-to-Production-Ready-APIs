@@ -1,0 +1,17 @@
+@baseUrl = https://localhost:5292
+
+
+###
+GET {{baseUrl}}/api/products
+tenantId: TenantA
+x-api-key: TenantAKey
+
+### cause Unauthorized
+GET {{baseUrl}}/api/products
+tenantId: TenantAa
+x-api-key: TenantAKey
+
+### cause Unauthorized
+GET {{baseUrl}}/api/products
+tenantId: TenantA
+x-api-key: TenantAKeys
