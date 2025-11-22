@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace M03.ResultFilters.Filters;
 
-public class EnvelopeResultFilter : Attribute, IAsyncResultFilter
+public class EnvelopeResultFilter : ResultFilterAttribute
 {
-    public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
+    public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
         if (context.Result is ObjectResult objectResult && objectResult.Value != null)
         {
