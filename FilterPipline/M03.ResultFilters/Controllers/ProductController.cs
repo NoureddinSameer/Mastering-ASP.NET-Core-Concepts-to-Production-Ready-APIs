@@ -5,11 +5,11 @@ namespace M03.ResultFilters.Controllers;
 
 [ApiController]
 [Route("api/products")]
-[EnvelopeResultFilter]
 public class ProductController() : ControllerBase
 {
 
     [HttpGet]
+    [EnvelopeResultFilter]
     public IActionResult Get()
     {
         return Ok(new[] { "Keyboard [$52.99]", "Mouse, [$34.99]" });
