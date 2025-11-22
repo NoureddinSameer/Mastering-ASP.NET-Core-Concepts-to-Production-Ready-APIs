@@ -1,21 +1,22 @@
+using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace M03.ResultFilters.Filters;
 
-
-public class EnvelopeResultFilter : IAsyncResultFilter
+public class EnvelopeResultFilter : Attribute, IAsyncResultFilter
 {
     public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
-        if(context.Result is ObjectResult objectResult && objectResult.Value != null)
+        if (context.Result is ObjectResult objectResult && objectResult.Value != null)
         {
             var wrapped = new
             {
-                success =true,
+                success = true,
                 data = objectResult.Value
-
             };
+
             context.Result = new JsonResult(wrapped)
             {
                 StatusCode = objectResult.StatusCode
@@ -23,6 +24,5 @@ public class EnvelopeResultFilter : IAsyncResultFilter
         }
 
         await next();
-
     }
 }
