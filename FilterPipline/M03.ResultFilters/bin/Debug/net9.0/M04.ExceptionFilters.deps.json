@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "M04.ExceptionFilters/1.0.0": {
+        "runtime": {
+          "M04.ExceptionFilters.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "M04.ExceptionFilters/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
