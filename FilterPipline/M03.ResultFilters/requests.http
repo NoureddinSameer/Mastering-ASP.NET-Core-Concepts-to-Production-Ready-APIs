@@ -3,3 +3,6 @@
 
 ###
 GET {{baseUrl}}/api/products
+
+###
+GET {{baseUrl}}/api/products/get2
