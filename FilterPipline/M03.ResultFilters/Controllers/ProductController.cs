@@ -5,6 +5,7 @@ namespace M03.ResultFilters.Controllers;
 
 [ApiController]
 [Route("api/products")]
+// [EnvelopeResultFilter]
 public class ProductController() : ControllerBase
 {
 
