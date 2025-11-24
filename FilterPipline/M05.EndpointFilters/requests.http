@@ -4,3 +4,5 @@
 ###
 GET {{baseUrl}}/api/products
 
+###
+GET {{baseUrl}}/api/customers
