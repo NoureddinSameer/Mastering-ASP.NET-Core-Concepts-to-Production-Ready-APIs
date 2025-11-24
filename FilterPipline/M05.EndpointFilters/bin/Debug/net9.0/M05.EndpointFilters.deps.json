@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "M05.EndpointFilters/1.0.0": {
+        "runtime": {
+          "M05.EndpointFilters.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "M05.EndpointFilters/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
