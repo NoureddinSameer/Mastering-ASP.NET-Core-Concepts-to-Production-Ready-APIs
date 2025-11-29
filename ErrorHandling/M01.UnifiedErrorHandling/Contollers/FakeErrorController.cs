@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace M01.Overview.Contollers;
 
 [Route("api/controller-fake-errors")]
+[ApiController]
 public class FakeErrorController : ControllerBase
 {
     [HttpGet("server-error")]
