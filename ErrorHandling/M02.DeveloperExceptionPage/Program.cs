@@ -10,7 +10,10 @@ if(!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
 }
-
+else
+{
+    app.UseExceptionHandler("/error-development");
+}
 app.MapControllers();
 
 app.MapErrorEndpoints();

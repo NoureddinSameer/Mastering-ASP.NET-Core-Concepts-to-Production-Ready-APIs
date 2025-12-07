@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Diagnostics;
 namespace M02.DeveloperExceptionPage.Contollers;
 public class ErrorController: ControllerBase
 {
@@ -10,4 +10,23 @@ public class ErrorController: ControllerBase
        StatusCode =500,
        Message = "Internal Server Error!"
     });
+
+    [Route("/error-development")]
+    public IActionResult HandleErrorDevelopment(
+    [FromServices] IHostEnvironment hostEnvironment)
+    {
+        if (!hostEnvironment.IsDevelopment())
+        {
+            return NotFound();
+        }
+
+        var exceptionHandlerFeature =
+            HttpContext.Features.Get<IExceptionHandlerFeature>()!;
+
+        return new ObjectResult(new
+        {
+            detail = exceptionHandlerFeature.Error.StackTrace,
+            title = exceptionHandlerFeature.Error.Message
+        });
+    }
 }
