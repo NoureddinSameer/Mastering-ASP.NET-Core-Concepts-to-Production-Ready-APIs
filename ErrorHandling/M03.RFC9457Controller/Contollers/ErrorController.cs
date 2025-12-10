@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Diagnostics;
-namespace M03.RFC9457Controller.Contollers;
+namespace M03.RFC9457Controller.Controllers;
 public class ErrorController: ControllerBase
 {
     [Route("/error")]
