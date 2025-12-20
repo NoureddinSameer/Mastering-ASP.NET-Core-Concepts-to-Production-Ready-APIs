@@ -15,10 +15,6 @@ POST {{baseUrl}}/api/controller-fake-errors/bad-request
 Content-Type: application/json
 
 
-### Bad Request
-POST {{baseUrl}}/api/controller-fake-errors/bad-request
-Content-Type: application/json
-
 ### Bad Request 2
 POST {{baseUrl}}/api/controller-fake-errors/bad-request-2
 Content-Type: application/json
