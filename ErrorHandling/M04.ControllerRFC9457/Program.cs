@@ -6,6 +6,7 @@ builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
+app.UseExceptionHandler();
 
 app.MapControllers();
 
