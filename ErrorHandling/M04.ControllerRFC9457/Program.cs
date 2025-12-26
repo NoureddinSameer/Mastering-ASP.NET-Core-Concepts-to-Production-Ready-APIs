@@ -8,6 +8,11 @@ var app = builder.Build();
 
 app.UseExceptionHandler();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
 app.MapControllers();
 
 app.Run();
