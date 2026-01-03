@@ -10,6 +10,10 @@ var app = builder.Build();
 app.UseExceptionHandler();
 
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
 
 app.MapErrorEndpoints();
 
