@@ -13,7 +13,8 @@ public static class ErrorEndpoints
             File.ReadAllText(@"C:\Settings\UploadSettings.json"); // not exist
             Results.Created();
         });
-        group.MapPost("/bad-request", () => Results.BadRequest("Product SKU is required"));
+        // group.MapPost("/bad-request", () => Results.BadRequest("Product SKU is required"));
+        group.MapPost("/bad-request", () => Results.BadRequest());
         group.MapPost("/not-found", () => Results.NotFound("Product not found."));
         group.MapPost("/unauthorized", () => Results.Unauthorized());
         group.MapPost("/conflict", () => Results.Conflict("This Product already exists."));
