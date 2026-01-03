@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
 namespace M06.GlobalErrorHandling.Contollers;
@@ -16,22 +17,40 @@ public class FakeErrorController : ControllerBase
     }
 
     [HttpPost("bad-request")]
-    public IActionResult BadRequestExample() => BadRequest("Product SKU is required");
+    public IActionResult BadRequestExample() => Problem(
+        type: "http://example.com/prop/sku-required",
+        title: HttpStatusCode.BadRequest.ToString(),
+        statusCode: StatusCodes.Status400BadRequest,
+        detail: "Product SKU is required"
+    );
+
 
     [HttpPost("bad-request-no-body")]
-    public IActionResult BadRequestExampleNOBody() => BadRequest();
+    public IActionResult BadRequestExampleNoBody() => BadRequest();
+
 
     [HttpPost("not-found")]
-    public IActionResult NotFoundExample() => NotFound("Product not found.");
+    public IActionResult NotFoundExample() => Problem(
+        type: "http://example.com/prop/product-not-found",
+        title: HttpStatusCode.NotFound.ToString(),
+        statusCode: StatusCodes.Status404NotFound,
+        detail: "Product not found."
+    );
 
     [HttpPost("unauthorized")]
     public IActionResult UnauthorizedExample() => Unauthorized();
 
     [HttpPost("conflict")]
-    public IActionResult ConflictExample() => Conflict("This Product already exists.");
+    public IActionResult ConflictExample() => Problem(
+        type: "http://example.com/prop/create-product-conflict",
+        title: HttpStatusCode.Conflict.ToString(),
+        statusCode: StatusCodes.Status409Conflict,
+        detail: "This Product already exists."
+    );
 
 
     [HttpPost("business-rule-error")]
     public IActionResult BusinessRuleExample() => throw new ValidationException("A discontinued product cannot be put on promotion.");
+
 
 }
