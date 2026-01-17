@@ -9,7 +9,7 @@ public class ProductController : ControllerBase
 {
 
     [HttpPost]
-    public IActionResult Post([FromBody]CreateProductRequest request)
+    public IActionResult Post(CreateProductRequest request)
     {
         // No need if [ApiController] is present
         // if(!ModelState.IsValid)
