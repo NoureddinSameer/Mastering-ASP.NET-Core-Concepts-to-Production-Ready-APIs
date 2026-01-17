@@ -6,7 +6,7 @@ POST {{baseUrl}}/api/products
 Content-Type: application/json
 
 {
-  "name": "Smart Watch Pro X",
+
   "description": "High-end smartwatch with GPS",
   "sku": "PRD-00121",
   "price": 249.99,
