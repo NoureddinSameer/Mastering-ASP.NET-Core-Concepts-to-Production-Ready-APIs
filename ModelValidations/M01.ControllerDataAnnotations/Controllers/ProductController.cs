@@ -9,7 +9,7 @@ public class ProductController : ControllerBase
 {
 
     [HttpPost]
-    public IActionResult Post(CreateProductRequest request)
+    public IActionResult Post([FromBody]CreateProductRequest request)
     {
         return Created($"/api/products/{Guid.NewGuid()}", request);
     }
