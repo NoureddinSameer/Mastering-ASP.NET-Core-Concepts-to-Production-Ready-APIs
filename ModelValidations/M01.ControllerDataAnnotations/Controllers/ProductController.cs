@@ -11,6 +11,8 @@ public class ProductController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody]CreateProductRequest request)
     {
+        if(!ModelState.IsValid)
+            return ValidationProblem(ModelState);
         return Created($"/api/products/{Guid.NewGuid()}", request);
     }
 }
