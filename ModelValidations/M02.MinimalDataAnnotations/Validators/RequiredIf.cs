@@ -26,7 +26,8 @@ public class RequiredIfAttribute : ValidationAttribute
         if (Equals(dependentValue, _targetValue))
         {
             if (value == null || value is string str && string.IsNullOrWhiteSpace(str))
-                return new ValidationResult(ErrorMessage ?? $"{validationContext.DisplayName} is required.");
+                return new ValidationResult(ErrorMessage ?? $"{validationContext.DisplayName} is required.",
+                new[] { validationContext.MemberName ?? "ReturnPolicyDescription" });
 
         }
 
