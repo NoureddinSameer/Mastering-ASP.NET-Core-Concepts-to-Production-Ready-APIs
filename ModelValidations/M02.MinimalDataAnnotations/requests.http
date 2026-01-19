@@ -9,7 +9,7 @@ Content-Type: application/json
   "sku": "PRD-00121",
   "price": 249.99,
   "stockQuantity": 1 ,
-  "launchDate": "2025-05-22",
+  "launchDate": "2026-05-22",
   "category": "Electronics",
   "imageUrl": "https://cdn.example.com/products/watch.jpg",
   "weight": 0.4,
