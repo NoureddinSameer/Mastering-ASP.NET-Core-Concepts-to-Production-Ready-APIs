@@ -1,4 +1,4 @@
-namespace M01.BasicSetup.Enums;
+namespace M03.ControllerFluentValidation.Enums;
 
 public enum ProductCategory
 {

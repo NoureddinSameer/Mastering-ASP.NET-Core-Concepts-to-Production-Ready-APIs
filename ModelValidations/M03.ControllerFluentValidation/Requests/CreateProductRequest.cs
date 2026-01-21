@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
-using M01.BasicSetup.Enums;
-using M01.ControllerDataAnnotations.Validators;
+using M03.ControllerFluentValidation.Enums;
+using M03.ControllerFluentValidation.Validators;
 
-namespace M01.BasicSetup.Requests;
+namespace M03.ControllerFluentValidation.Requests;
 
 public class CreateProductRequest
 {
