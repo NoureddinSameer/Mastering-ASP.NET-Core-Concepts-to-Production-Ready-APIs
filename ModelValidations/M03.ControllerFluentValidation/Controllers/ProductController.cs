@@ -1,4 +1,4 @@
-using M01.BasicSetup.Requests;
+using M03.ControllerFluentValidation.Requests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace M03.ControllerFluentValidation.Controllers;

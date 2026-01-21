@@ -25,3 +25,9 @@ C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\o
 C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\obj\Debug\net9.0\M03.ControllerFluentValidation.pdb
 C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\obj\Debug\net9.0\M03.ControllerFluentValidation.genruntimeconfig.cache
 C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\obj\Debug\net9.0\ref\M03.ControllerFluentValidation.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\obj\Debug\net9.0\M03.ControllerFluentValidation.csproj.AssemblyReference.cache
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\obj\Debug\net9.0\M03.ControllerFluentValidation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M03.ControllerFluentValidation\obj\Debug\net9.0\M03.Cont.FFD03A2E.Up2Date

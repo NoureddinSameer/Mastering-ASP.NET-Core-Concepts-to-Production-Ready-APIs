@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/M01.BasicSetup/M01.BasicSetup.csproj",
+                "${workspaceFolder}/M03.ControllerFluentValidation/M03.ControllerFluentValidation.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/M01.BasicSetup/M01.BasicSetup.csproj",
+                "${workspaceFolder}/M03.ControllerFluentValidation/M03.ControllerFluentValidation.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/M01.BasicSetup/M01.BasicSetup.csproj"
+                "${workspaceFolder}/M03.ControllerFluentValidation/M03.ControllerFluentValidation.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
