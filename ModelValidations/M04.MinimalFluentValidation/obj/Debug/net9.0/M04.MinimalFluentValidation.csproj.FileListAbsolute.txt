@@ -25,3 +25,9 @@ C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\obj\
 C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\obj\Debug\net9.0\M04.MinimalFluentValidation.pdb
 C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\obj\Debug\net9.0\M04.MinimalFluentValidation.genruntimeconfig.cache
 C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\obj\Debug\net9.0\ref\M04.MinimalFluentValidation.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\obj\Debug\net9.0\M04.MinimalFluentValidation.csproj.AssemblyReference.cache
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\obj\Debug\net9.0\M04.MinimalFluentValidation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Nour\OneDrive\Desktop\ModelValidations\M04.MinimalFluentValidation\obj\Debug\net9.0\M04.Mini.BA839F7D.Up2Date
