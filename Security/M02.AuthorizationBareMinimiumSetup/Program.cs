@@ -9,7 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication()
     .AddCookie();
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Supervisor-With-Driver-License-A", policy =>
+    {
+        policy.RequireClaim("driver-license-class","A");
+        policy.RequireRole("Supervisor");
+    });
+});
 
 var app = builder.Build();
 
@@ -23,6 +30,7 @@ app.MapGet("/login", async (HttpContext httpContext) =>
         new("name","Nour S."),
         new("email","nour@localhost"),
         new(ClaimTypes.Role,"Admin"),
+        new(ClaimTypes.Role,"Moderator"),
         new("driver-license-class","A"),
         new("sub",Guid.NewGuid().ToString())
     ];
@@ -71,7 +79,7 @@ app.MapGet("/admin-only", () =>
 app.MapPost("/drive/bus", () =>
 {
     return Results.Ok("Only Class A driver can drive bus");
-}).RequireAuthorization(a => a.RequireClaim("driver-license-class","A")).RequireAuthorization(a => a.RequireRole("Admin"));
+}).RequireAuthorization("Supervisor-With-Driver-License-A");
 
 
 app.MapGet("/account/login", () =>"Login Page");
