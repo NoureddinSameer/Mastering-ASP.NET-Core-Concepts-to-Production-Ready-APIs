@@ -2,17 +2,20 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-
+using Microsoft.AspNetCore.Authorization;
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddAuthentication()
     .AddCookie();
 
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
 app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapGet("/login", async (HttpContext httpContext) =>
 {
@@ -38,14 +41,20 @@ app.MapGet("/logout", async (HttpContext httpContext) =>
 });
 
 
-app.MapGet("/user", (HttpContext httpContext) =>
+app.MapGet("/user", [Authorize] (HttpContext httpContext) =>
 {
     var principal = httpContext.User;
-    if(principal.Identity is {IsAuthenticated: true })
-    {
-        var claims = principal.Claims.Select(c=> new{c.Type,c.Value});
-        return Results.Ok(claims);
-    }
-    return Results.Unauthorized();
+
+    var claims = principal.Claims.Select(c=> new{ c.Type, c.Value });
+
+    return Results.Ok(claims);
 });
+
+app.MapGet("/secure", (HttpContext httpContext) =>
+{
+    return Results.Ok("Secure Page");
+}).RequireAuthorization();
+
+app.MapGet("/account/login", () =>"Login Page");
+
 app.Run();

@@ -12,3 +12,7 @@ GET {{baseUrl}}/logout
 ###
 
 GET {{baseUrl}}/user
+
+###
+
+GET {{baseUrl}}/secure
