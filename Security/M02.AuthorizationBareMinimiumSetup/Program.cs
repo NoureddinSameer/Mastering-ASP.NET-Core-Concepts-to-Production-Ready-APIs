@@ -66,6 +66,13 @@ app.MapGet("/admin-only", () =>
     return Results.Ok("Secure Page admin-only");
 }).RequireAuthorization(a => a.RequireRole("Admin"));
 
+
+app.MapPost("/drive/bus", () =>
+{
+    return Results.Ok("Only Class A driver can drive bus");
+}).RequireAuthorization(a => a.RequireClaim("driver-license-class","A"));
+
+
 app.MapGet("/account/login", () =>"Login Page");
 
 app.Run();
