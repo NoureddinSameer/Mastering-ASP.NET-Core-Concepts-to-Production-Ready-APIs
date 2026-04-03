@@ -22,7 +22,7 @@ app.MapGet("/login", async (HttpContext httpContext) =>
     List<Claim> claims = [
         new("name","Nour S."),
         new("email","nour@localhost"),
-        new(ClaimTypes.Role,"Supervisor"),
+        new(ClaimTypes.Role,"Admin"),
         new("driver-license-class","A"),
         new("sub",Guid.NewGuid().ToString())
     ];
