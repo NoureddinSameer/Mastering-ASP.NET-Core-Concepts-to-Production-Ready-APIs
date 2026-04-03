@@ -71,7 +71,7 @@ app.MapGet("/admin-only", () =>
 app.MapPost("/drive/bus", () =>
 {
     return Results.Ok("Only Class A driver can drive bus");
-}).RequireAuthorization(a => a.RequireClaim("driver-license-class","A"));
+}).RequireAuthorization(a => a.RequireClaim("driver-license-class","A")).RequireAuthorization(a => a.RequireRole("Admin"));
 
 
 app.MapGet("/account/login", () =>"Login Page");
