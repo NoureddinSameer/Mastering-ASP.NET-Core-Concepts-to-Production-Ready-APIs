@@ -50,7 +50,7 @@ app.MapGet("/user", [Authorize] (HttpContext httpContext) =>
     return Results.Ok(claims);
 });
 
-app.MapGet("/secure", (HttpContext httpContext) =>
+app.MapGet("/secure", () =>
 {
     return Results.Ok("Secure Page");
 }).RequireAuthorization();
