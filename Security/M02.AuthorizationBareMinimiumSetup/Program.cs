@@ -22,6 +22,7 @@ app.MapGet("/login", async (HttpContext httpContext) =>
     List<Claim> claims = [
         new("name","Nour S."),
         new("email","nour@localhost"),
+        new(ClaimTypes.Role,"Supervisor"),
         new("sub",Guid.NewGuid().ToString())
     ];
     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -54,6 +55,16 @@ app.MapGet("/secure", () =>
 {
     return Results.Ok("Secure Page");
 }).RequireAuthorization();
+
+app.MapGet("/supervisor-only", [Authorize(Roles = "Admin,Supervisor")] () =>
+{
+    return Results.Ok("Secure Page supervisor-only");
+});
+
+app.MapGet("/admin-only", () =>
+{
+    return Results.Ok("Secure Page admin-only");
+}).RequireAuthorization(a => a.RequireRole("Admin"));
 
 app.MapGet("/account/login", () =>"Login Page");
 
