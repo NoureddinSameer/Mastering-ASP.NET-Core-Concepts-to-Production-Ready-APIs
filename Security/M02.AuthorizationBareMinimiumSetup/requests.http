@@ -16,3 +16,15 @@ GET {{baseUrl}}/user
 ###
 
 GET {{baseUrl}}/secure
+
+###
+
+GET {{baseUrl}}/supervisor-only
+
+###
+
+GET {{baseUrl}}/admin-only
+
+###
+
+POST {{baseUrl}}/drive/bus
