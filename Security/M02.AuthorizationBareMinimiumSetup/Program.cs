@@ -23,6 +23,7 @@ app.MapGet("/login", async (HttpContext httpContext) =>
         new("name","Nour S."),
         new("email","nour@localhost"),
         new(ClaimTypes.Role,"Supervisor"),
+        new("driver-license-class","A"),
         new("sub",Guid.NewGuid().ToString())
     ];
     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
