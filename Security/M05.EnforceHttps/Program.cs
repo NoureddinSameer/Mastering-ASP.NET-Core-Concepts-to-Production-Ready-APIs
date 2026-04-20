@@ -10,6 +10,9 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
+if(!app.Environment.IsDevelopment()){
+    app.UseHsts();
+}
 
 
 app.MapGet("/", () => "Hello World!");
