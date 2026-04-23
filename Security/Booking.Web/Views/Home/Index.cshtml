@@ -22,8 +22,8 @@
                 li.innerHTML = `
                                 <div class="fw-bold">Room: <span class="text-primary">${b.room}</span></div>
                                 <div>Customer: ${b.customerName}</div>
-                                <div>Check-In: ${new Date(b.checkIn).toLocaleDateString}</div>                            
-                                <div>Check-Out: ${new Date(b.checkOut).toLocaleDateString}</div>                            
+                                <div>Check-In: ${new Date(b.checkIn).toLocaleDateString()}</div>
+                                <div>Check-Out: ${new Date(b.checkOut).toLocaleDateString()}</div>
                             `;
                 bookingsUIElement.appendChild(li);
             });
