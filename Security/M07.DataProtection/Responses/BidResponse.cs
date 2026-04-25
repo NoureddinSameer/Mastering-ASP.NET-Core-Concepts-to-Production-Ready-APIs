@@ -14,7 +14,7 @@ public class BidResponse
     public string? Telephone { get; set; }
     public string? Address { get; set; }
 
-    public static BidResponse FromModel(Bid bid)
+    public static BidResponse FromModel(Bid bid, IDataProtector protector)
     {
         ArgumentNullException.ThrowIfNull(bid);
 
@@ -23,11 +23,11 @@ public class BidResponse
             Id = bid.Id,
             Amount = bid.Amount,
             BidDate = bid.BidDate,
-            FirstName = bid.FirstName,
-            LastName = bid.LastName,
-            Email = bid.Email,
-            Telephone = bid.Telephone,
-            Address = bid.Address
+            FirstName = string.IsNullOrWhiteSpace(bid.FirstName) ? null : protector.Unprotect(bid.FirstName),
+            LastName = string.IsNullOrWhiteSpace(bid.LastName) ? null : protector.Unprotect(bid.LastName),
+            Email = string.IsNullOrWhiteSpace(bid.Email) ? null : protector.Unprotect(bid.Email),
+            Telephone = string.IsNullOrWhiteSpace(bid.Telephone) ? null : protector.Unprotect(bid.Telephone),
+            Address = string.IsNullOrWhiteSpace(bid.Address) ? null : protector.Unprotect(bid.Address)
         };
     }
 }

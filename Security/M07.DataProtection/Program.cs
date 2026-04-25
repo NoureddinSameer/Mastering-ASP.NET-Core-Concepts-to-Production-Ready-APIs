@@ -1,12 +1,16 @@
 using M07.DataProtection.Data;
 using M07.DataProtection.Requests;
 using M07.DataProtection.Services;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IBiddingService, BiddingService>();
+
+builder.Services.AddDataProtection()
+    .PersistKeysToDbContext<AppDbContext>();
 
 builder.Services.Configure<JsonOptions>(options =>
 {
