@@ -2,12 +2,14 @@ using M07.DataProtection.Data;
 using M07.DataProtection.Entities;
 using M07.DataProtection.Requests;
 using M07.DataProtection.Responses;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 
 namespace M07.DataProtection.Services;
 
-public class BiddingService(AppDbContext context) : IBiddingService
+public class BiddingService(AppDbContext context, IDataProtectionProvider protectionProvider) : IBiddingService
 {
+    private readonly IDataProtector _protector = protectionProvider.CreateProtector("Bidding.Protection");
 
     public async Task<BidResponse> CreateBidAsync(CreateBidRequest request)
     {
@@ -16,19 +18,20 @@ public class BiddingService(AppDbContext context) : IBiddingService
             Id = Guid.NewGuid(),
             Amount = request.Amount,
             BidDate = DateTime.UtcNow,
-            FirstName = request.FirstName,
-            LastName = request.LastName,
-            Email = request.Email,
-            Telephone = request.Telephone,
-            Address = request.Address
+            FirstName = _protector.Protect(request.FirstName!),
+            LastName = _protector.Protect(request.LastName!),
+            Email = _protector.Protect(request.Email!),
+            Telephone = _protector.Protect(request.Telephone!),
+            Address = _protector.Protect(request.Address!)
         };
 
         context.Bids.Add(bid);
 
         await context.SaveChangesAsync();
 
-        return BidResponse.FromModel(bid);
+        return BidResponse.FromModel(bid, _protector);
     }
+
 
     public async Task<List<BidResponse>> GetAllBidsAsync()
     {
@@ -36,7 +39,7 @@ public class BiddingService(AppDbContext context) : IBiddingService
                  .OrderByDescending(b => b.BidDate)
                  .ToListAsync();
 
-        return bids.Select(bid => BidResponse.FromModel(bid)).ToList();
+        return bids.Select(bid => BidResponse.FromModel(bid, _protector)).ToList();
     }
 
     public async Task<BidResponse?> GetBidAsync(Guid id)
@@ -46,6 +49,6 @@ public class BiddingService(AppDbContext context) : IBiddingService
         if (bid == null)
             return null;
 
-        return BidResponse.FromModel(bid);
+        return BidResponse.FromModel(bid, _protector);
     }
 }
