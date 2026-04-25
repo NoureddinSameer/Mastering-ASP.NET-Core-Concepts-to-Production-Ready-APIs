@@ -4,7 +4,7 @@
 GET {{baseUrl}}/api/bids
 
 ###
-GET {{baseUrl}}/api/bids/988de6c3-4b74-4e29-8349-9c295f39a01c
+GET {{baseUrl}}/api/bids/2e2e73cd-3902-4564-954b-5c04814e861b
 
 ###
 POST {{baseUrl}}/api/bids
