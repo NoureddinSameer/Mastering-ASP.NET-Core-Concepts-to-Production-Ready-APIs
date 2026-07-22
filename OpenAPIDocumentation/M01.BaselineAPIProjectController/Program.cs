@@ -23,7 +23,10 @@ app.UseStatusCodePages();
 
 app.MapControllers();
 
-
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
 
 using (var scope = app.Services.CreateScope())
 {
