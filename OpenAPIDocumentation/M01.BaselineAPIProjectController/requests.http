@@ -38,7 +38,7 @@ Authorization: Bearer {{tokenProjectManager}}
 ###
 POST {{baseUrl}}/api/v1/projects
 Content-Type: application/json
-Authorization: Bearer {{tokenProjectManager}}
+Authorization: Bearer {{tokenTeamMember}}
 
 {
   "name": "Test Project",
