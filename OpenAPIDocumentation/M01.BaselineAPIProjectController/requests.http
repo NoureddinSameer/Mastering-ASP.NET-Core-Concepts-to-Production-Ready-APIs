@@ -41,7 +41,7 @@ Content-Type: application/json
 Authorization: Bearer {{tokenProjectManager}}
 
 {
-  "name": "Building the Login Screen",
+  "name": "Building Whatever",
   "description": "POC",
   "expectedStartDate": "2025-06-01T00:00:00Z",
   "budget": 10000
