@@ -38,11 +38,11 @@ Authorization: Bearer {{tokenProjectManager}}
 ###
 POST {{baseUrl}}/api/v1/projects
 Content-Type: application/json
-Authorization: Bearer {{tokenTeamMember}}
+Authorization: Bearer {{tokenProjectManager}}
 
 {
-  "name": "Test Project",
-  "description": "Demo project",
+  "name": "Building the Login Screen",
+  "description": "POC",
   "expectedStartDate": "2025-06-01T00:00:00Z",
   "budget": 10000
 }
