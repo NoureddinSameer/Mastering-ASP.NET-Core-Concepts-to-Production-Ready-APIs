@@ -37,7 +37,12 @@ if (app.Environment.IsDevelopment())
         options.EnableFilter();
     });
 
-    app.MapScalarApiReference();
+    app.MapScalarApiReference(options =>
+    {
+        options.AddDocument("v1", "Project API V1");
+        options.AddDocument("v2", "Project API V2");
+    });
+    // app.MapScalarApiReference();
 }
 
 using (var scope = app.Services.CreateScope())
