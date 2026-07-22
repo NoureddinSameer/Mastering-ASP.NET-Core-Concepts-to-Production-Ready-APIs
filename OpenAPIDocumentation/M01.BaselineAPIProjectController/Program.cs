@@ -1,6 +1,6 @@
 using M01.BaselineAPIProjectController;
 using M01.BaselineAPIProjectController.Data;
-
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +17,7 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseExceptionHandler();
+app.UseExceptionHandler(); // handle error in production not in development
 
 app.UseStatusCodePages();
 
@@ -26,6 +26,23 @@ app.MapControllers();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "Project API V1");
+        options.SwaggerEndpoint("/openapi/v2.json", "Project API V2");
+
+        options.EnableDeepLinking();
+        options.DisplayRequestDuration();
+        options.EnableFilter();
+    });
+
+    app.MapScalarApiReference(options =>
+    {
+        options.AddDocument("v1", "Project API V1");
+        options.AddDocument("v2", "Project API V2");
+    });
+    // app.MapScalarApiReference();
 }
 
 using (var scope = app.Services.CreateScope())
