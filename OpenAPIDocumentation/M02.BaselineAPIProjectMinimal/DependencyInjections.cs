@@ -6,6 +6,7 @@ using FluentValidation.AspNetCore;
 using M02.BaselineAPIProjectMinimal.Data;
 using M02.BaselineAPIProjectMinimal.Exceptions;
 using M02.BaselineAPIProjectMinimal.Identity;
+using M02.BaselineAPIProjectMinimal.OpenApi.Transformers;
 using M02.BaselineAPIProjectMinimal.Permissions;
 using M02.BaselineAPIProjectMinimal.Services;
 using M02.BaselineAPIProjectMinimal.Validations;
@@ -24,6 +25,7 @@ public static class DependencyInjection
     {
         services.AddCustomProblemDetails()
                 .AddCustomApiVersioning()
+                .AddApiDocumentation()
                 .AddExceptionHandling()
                 .AddJsonConfiguration()
                 .AddValidation()
@@ -66,7 +68,25 @@ public static class DependencyInjection
         return services;
     }
 
+    public static IServiceCollection AddApiDocumentation(this IServiceCollection services)
+    {
+        string[] versions = ["v1", "v2"];
 
+        foreach (var version in versions)
+        {
+            services.AddOpenApi(version, options =>
+            {
+                // Versioning config
+                options.AddDocumentTransformer<VersionInfoTransformer>();
+
+                // Security Scheme config
+
+                options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+                options.AddOperationTransformer<BearerSecuritySchemeTransformer>();
+            });
+        }
+        return services;
+    }
 
     public static IServiceCollection AddExceptionHandling(this IServiceCollection services)
     {

@@ -28,6 +28,10 @@ var versionedGroup = app.MapGroup("api/v{apiVersion:apiVersion}")
 versionedGroup.MapProjectEndpoints();  // untouched
 app.MapTokenEndpoints();
 
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
 
 
 using (var scope = app.Services.CreateScope())
