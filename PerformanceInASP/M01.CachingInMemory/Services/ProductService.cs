@@ -3,18 +3,32 @@ using M01.CachingInMemory.Models;
 using M01.CachingInMemory.Requests;
 using M01.CachingInMemory.Responses;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 
 namespace M01.CachingInMemory.Services;
 
-public class ProductService(AppDbContext context) : IProductService
+public class ProductService(AppDbContext context, IMemoryCache cache) : IProductService
 {
 
     public async Task<List<ProductResponse>> GetProductsAsync()
     {
-            var products = await context.Products.ToListAsync();
+        var cacheKey = "products";
+        if(cache.TryGetValue(cacheKey, out List<ProductResponse>? products))
+        {
+            Console.WriteLine("Cache visited");
+            return products!;
+        }
 
-            return  products?.Select(p => ProductResponse.FromModel(p)).ToList() ?? [];
+        var entities = await context.Products.ToListAsync();
+
+        Console.WriteLine("DB visited");
+
+        products = entities?.Select(p => ProductResponse.FromModel(p)).ToList() ?? [];
+
+        cache.Set(cacheKey, products);
+
+        return  products;
     }
 
     public async Task<ProductResponse?> GetProductByIdAsync(int productId)
