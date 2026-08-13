@@ -13,6 +13,25 @@ public class ProductService(AppDbContext context, IMemoryCache cache) : IProduct
 
     public async Task<List<ProductResponse>> GetProductsAsync()
     {
+        return await cache.GetOrCreate("products", async entry=>
+        {
+            // there is no cache
+            entry.Size = 1;
+            entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30); // TTL = Time To Live
+
+            var entities = await context.Products.ToListAsync();
+
+            Console.WriteLine("DB visited");
+
+            var productResponse = entities?.Select(p => ProductResponse.FromModel(p)).ToList() ?? [];
+
+            return  productResponse!;
+        })!;
+    }
+
+
+    public async Task<List<ProductResponse>> GetProductsAsync_Old()
+    {
         var cacheKey = "products";
         if(cache.TryGetValue(cacheKey, out List<ProductResponse>? products))
         {
