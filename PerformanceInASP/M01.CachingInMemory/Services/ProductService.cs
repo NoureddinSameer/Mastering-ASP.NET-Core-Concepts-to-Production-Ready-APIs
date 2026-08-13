@@ -26,7 +26,11 @@ public class ProductService(AppDbContext context, IMemoryCache cache) : IProduct
 
         products = entities?.Select(p => ProductResponse.FromModel(p)).ToList() ?? [];
 
-        cache.Set(cacheKey, products);
+        cache.Set(cacheKey, products, new MemoryCacheEntryOptions
+        {
+            Size = 1,
+            AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30) // TTL = Time To Live
+        });
 
         return  products;
     }
