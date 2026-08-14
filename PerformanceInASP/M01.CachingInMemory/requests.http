@@ -1,6 +1,6 @@
 @baseUrl = https://localhost:7062
 
-@productId = 1
+@productId = 2
 
 ###
 GET {{baseUrl}}/api/products
