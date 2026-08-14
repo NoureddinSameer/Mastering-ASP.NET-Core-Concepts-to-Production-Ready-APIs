@@ -72,6 +72,8 @@ public class ProductService(AppDbContext context, IMemoryCache cache) : IProduct
 
         await context.SaveChangesAsync();
 
+        cache.Remove("products"); // invalidate
+
         return ProductResponse.FromModel(product);
     }
 
@@ -86,6 +88,7 @@ public class ProductService(AppDbContext context, IMemoryCache cache) : IProduct
 
         await context.SaveChangesAsync();
 
+        cache.Remove("products"); // invalidate
     }
 
     public async Task DeleteProductAsync(int id)
@@ -96,5 +99,7 @@ public class ProductService(AppDbContext context, IMemoryCache cache) : IProduct
         context.Products.Remove(product);
 
         await context.SaveChangesAsync();
+
+        cache.Remove("products"); // invalidate
     }
 }
