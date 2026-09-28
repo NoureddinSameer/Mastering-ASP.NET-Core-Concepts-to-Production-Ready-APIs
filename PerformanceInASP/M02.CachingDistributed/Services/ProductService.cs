@@ -4,16 +4,37 @@ using M02.CachingDistributed.Models;
 using M02.CachingDistributed.Requests;
 using M02.CachingDistributed.Responses;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace M02.CachingDistributed.Services;
 
-public class ProductService(AppDbContext context) : IProductService
+public class ProductService(AppDbContext context, IDistributedCache cache) : IProductService
 {
     public async Task<List<ProductResponse>> GetProductsAsync()
     {
+        var cacheKey = "products";
+
+        var cachedData = await cache.GetStringAsync(cacheKey);
+
+        if (cachedData is not null)
+        {
+            Console.WriteLine("Cache visited");
+            return JsonSerializer.Deserialize<List<ProductResponse>>(cachedData)!;
+        }
+
         var entities = await context.Products.ToListAsync();
 
         var products = entities.Select(ProductResponse.FromModel).ToList();
+
+        var jsonData = JsonSerializer.Serialize(products);
+
+        var options = new DistributedCacheEntryOptions
+        {
+            AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30) // TTL
+        };
+
+        await cache.SetStringAsync(cacheKey, jsonData, options);
 
         return products;
     }
@@ -36,6 +57,8 @@ public class ProductService(AppDbContext context) : IProductService
 
         await context.SaveChangesAsync();
 
+        await cache.RemoveAsync("products");
+
         return ProductResponse.FromModel(product);
     }
 
@@ -49,6 +72,8 @@ public class ProductService(AppDbContext context) : IProductService
         existingProduct.Price = request.Price;
 
         await context.SaveChangesAsync();
+
+        await cache.RemoveAsync("products");
     }
 
     public async Task DeleteProductAsync(int id)
@@ -59,5 +84,7 @@ public class ProductService(AppDbContext context) : IProductService
         context.Products.Remove(product);
 
         await context.SaveChangesAsync();
+
+        await cache.RemoveAsync("products"); // invalidate
     }
 }
