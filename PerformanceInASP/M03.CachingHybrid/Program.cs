@@ -14,12 +14,12 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.InstanceName = "M03:";
 });
 
-builder.Services.AddDistributedSqlServerCache(options =>
-{
-    options.ConnectionString = builder.Configuration.GetConnectionString("SqlCache");
-    options.SchemaName = "dbo";
-    options.TableName = "CacheEntries";
-});
+// builder.Services.AddDistributedSqlServerCache(options =>
+// {
+//     options.ConnectionString = builder.Configuration.GetConnectionString("SqlCache");
+//     options.SchemaName = "dbo";
+//     options.TableName = "CacheEntries";
+// });
 
 builder.Services.AddHybridCache(options =>
 {
@@ -27,6 +27,8 @@ builder.Services.AddHybridCache(options =>
     {
         Expiration = TimeSpan.FromMinutes(10), // L2, L3 
         LocalCacheExpiration = TimeSpan.FromSeconds(30)// L1
+        // ,Flags = HybridCacheEntryFlags.DisableLocalCache
+        // ,Flags = HybridCacheEntryFlags.DisableDistributedCache
     };
 });
 
