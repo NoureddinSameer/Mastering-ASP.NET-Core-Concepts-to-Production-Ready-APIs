@@ -7,17 +7,29 @@ using Microsoft.Extensions.Caching.Hybrid;
 
 namespace M03.CachingHybrid.Services;
 
-public class ProductService(AppDbContext context) : IProductService
+public class ProductService(AppDbContext context, HybridCache cache) : IProductService
 {
-
-
     public async Task<List<ProductResponse>> GetProductsAsync()
     {
-        var entities = await context.Products.ToListAsync();
+        var products = await cache.GetOrCreateAsync("products",
+        async ct =>
+        {
+            var entities = await context.Products.ToListAsync(ct);
 
-        var productResponse = entities?.Select(p => ProductResponse.FromModel(p)).ToList() ?? [];
+            var productResponse = entities?.Select(p => ProductResponse.FromModel(p)).ToList() ?? [];
 
-        return productResponse!;
+            Console.WriteLine("DB Visited");
+
+            return productResponse;
+        },
+        options: new HybridCacheEntryOptions
+        {
+
+        },
+        tags: ["products-tag"]
+        );
+
+        return products;
     }
 
     public async Task<ProductResponse?> GetProductByIdAsync(int productId)
@@ -38,6 +50,8 @@ public class ProductService(AppDbContext context) : IProductService
 
         await context.SaveChangesAsync();
 
+        await cache.RemoveAsync("products"); // invalidate
+
         return ProductResponse.FromModel(product);
     }
 
@@ -51,6 +65,11 @@ public class ProductService(AppDbContext context) : IProductService
         existingProduct.Price = request.Price;
 
         await context.SaveChangesAsync();
+
+        await cache.RemoveAsync("products"); // invalidate
+
+        await cache.RemoveByTagAsync("products-tag");
+
     }
 
     public async Task DeleteProductAsync(int id)
@@ -61,5 +80,7 @@ public class ProductService(AppDbContext context) : IProductService
         context.Products.Remove(product);
 
         await context.SaveChangesAsync();
+
+        await cache.RemoveAsync("products"); // invalidate
     }
 }
